@@ -24,7 +24,7 @@ import QtQuick.Controls.Styles.Nemo 1.0
 import QtQuick.Layouts 1.0
 import org.nemomobile.voicecall 1.0
 import MeeGo.QOfono 0.2
-
+import org.nemomobile.contacts 1.0
 
 Page {
     id: page
@@ -34,9 +34,6 @@ Page {
     }
     VoiceCallManager {
         id: telephone
-    }
-    OfonoVoiceCallManager {
-        id: ofonocallmanager
     }
     ColumnLayout {
         spacing: 40
@@ -100,7 +97,23 @@ Page {
             DialerButton {
                 text: "#"
             }
-
+        }
+        RowLayout {
+            Button {
+                text: "Call"
+                onClicked: {
+                    var normalizedNumber = Person.normalizePhoneNumber(dialedNumber.text)
+                    telephone.dial(telephone.defaultProviderId, normalizedNumber)
+                }
+            }
+            Button {
+                text: "Hang up"
+                onClicked: {
+                    for (var index = 0; index < telephone.voiceCalls.count; ++index) {
+                        telephone.voiceCalls.instance(index).hangup()
+                    }
+                }
+            }
         }
     }
 }

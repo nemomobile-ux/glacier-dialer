@@ -21,7 +21,11 @@ import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Nemo 1.0
 import QtQuick.Controls.Styles.Nemo 1.0
-Rectangle {
-    width: 100
-    height: 62
+
+Button {
+    id: btn
+
+    onClicked: {
+        dialedNumber.text += btn.text
+    }
 }
