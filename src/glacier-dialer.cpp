@@ -52,6 +52,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine(QUrl("/usr/share/glacier-dialer/qml/glacier-dialer.qml"));
     QObject *topLevel = engine.rootObjects().value(0);
     QQuickWindow *window = qobject_cast<QQuickWindow *>(topLevel);
+    setenv("QT_QUICK_CONTROLS_STYLE", "Nemo", 1);
     if ( !window ) {
         qWarning("Error: Your root item has to be a Window.");
         return -1;

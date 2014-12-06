@@ -24,7 +24,7 @@ import QtQuick.Controls.Styles.Nemo 1.0
 
 Button {
     id: btn
-
+    width: 40
     onClicked: {
         dialedNumber.text += btn.text
     }

@@ -32,12 +32,28 @@ Page {
         id: tools
         title: "Glacier Dialer"
     }
+    property string modemPath: manager.modems.length > 0 ? manager.modems[0] : ""
+
+    OfonoModem {
+        id: ofonoModem
+        modemPath: modemPath
+    }
+    OfonoManager {
+        id: manager
+    }
+
+    OfonoVoiceCallManager {
+        id: telephony
+        modemPath: modemPath
+    }
     VoiceCallManager {
         id: telephone
     }
+
     ColumnLayout {
-        spacing: 40
+        spacing: 20
         anchors.centerIn: parent
+        anchors.fill: parent
 
         RowLayout {
             spacing: 20
@@ -60,6 +76,7 @@ Page {
         GridLayout {
             columnSpacing: 20
             rowSpacing: 20
+            columns: 3
 
             DialerButton {
                 text: "1"
@@ -89,7 +106,7 @@ Page {
                 text: "9"
             }
             DialerButton {
-                text: "*"
+                text: "+"
             }
             DialerButton {
                 text: "0"
@@ -101,17 +118,18 @@ Page {
         RowLayout {
             Button {
                 text: "Call"
+                width: 60
                 onClicked: {
                     var normalizedNumber = Person.normalizePhoneNumber(dialedNumber.text)
-                    telephone.dial(telephone.defaultProviderId, normalizedNumber)
+                    console.log("Calling: " + normalizedNumber)
+                    telephony.dial(normalizedNumber, "")
                 }
             }
             Button {
                 text: "Hang up"
+                width: 60
                 onClicked: {
-                    for (var index = 0; index < telephone.voiceCalls.count; ++index) {
-                        telephone.voiceCalls.instance(index).hangup()
-                    }
+                    telephony.hangupAll()
                 }
             }
         }

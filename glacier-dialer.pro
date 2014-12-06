@@ -15,9 +15,12 @@ target.path = /usr/bin
 desktop.files = glacier-dialer.desktop
 desktop.path = /usr/share/applications
 
-qml.files = qml/glacier-dialer.qml \
-    qml/pages/FirstPage.qml \
-    qml/pages/SecondPage.qml
+qml.files = qml/glacier-dialer.qml
 qml.path = /usr/share/glacier-dialer/qml
 
-INSTALLS += target desktop qml
+pages.files = qml/pages/FirstPage.qml \
+    qml/pages/SecondPage.qml \
+    qml/pages/DialerButton.qml
+pages.path = /usr/share/glacier-dialer/qml/pages
+
+INSTALLS += target desktop qml pages

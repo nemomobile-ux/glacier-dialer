@@ -6,9 +6,10 @@ Group:      Qt/Qt
 License:    LGPL
 URL:        https://github.com/nemomobile-ux/glacier-dialer
 Source0:    %{name}-%{version}.tar.bz2
-Requires:   qtquickcontrols-nemo
+Requires:   qt5-qtquickcontrols-nemo
 Requires:   voicecall-qt5
 Requires:   nemo-qml-plugin-contacts-qt5
+Requires:   libqofono-qt5-declarative
 BuildRequires:  qt5-qtcore-devel
 BuildRequires:  qt5-qtgui-devel
 BuildRequires:  qt5-qtdeclarative-devel
