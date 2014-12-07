@@ -32,6 +32,7 @@
 #include <QtQuick>
 #endif
 #include <QtGui/QGuiApplication>
+#include "declarativeview.h"
 
 #include <QtQml>
 #include <QtQuick/QQuickView>
@@ -49,15 +50,19 @@ int main(int argc, char *argv[])
                              | Qt::InvertedLandscapeOrientation
                              | Qt::InvertedPortraitOrientation);
     }
-    QQmlApplicationEngine engine(QUrl("/usr/share/glacier-dialer/qml/glacier-dialer.qml"));
-    QObject *topLevel = engine.rootObjects().value(0);
+    QQmlApplicationEngine* engine = new QQmlApplicationEngine(QUrl("/usr/share/glacier-dialer/qml/glacier-dialer.qml"));
+    QObject *topLevel = engine->rootObjects().value(0);
     QQuickWindow *window = qobject_cast<QQuickWindow *>(topLevel);
     setenv("QT_QUICK_CONTROLS_STYLE", "Nemo", 1);
+    DeclarativeView view(engine, window);
+    view.setSource(QUrl::fromLocalFile("/usr/share/glacier-dialer/qml/pages/FirstPage.qml"));
     if ( !window ) {
         qWarning("Error: Your root item has to be a Window.");
         return -1;
     }
-    window->showFullScreen();
+    if (!app.arguments().contains("-prestart")) {
+        view.showFullScreen();
+    }
     return app.exec();
 }
 

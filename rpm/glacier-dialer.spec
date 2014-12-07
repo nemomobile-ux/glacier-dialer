@@ -10,6 +10,7 @@ Requires:   qt5-qtquickcontrols-nemo
 Requires:   voicecall-qt5
 Requires:   nemo-qml-plugin-contacts-qt5
 Requires:   libqofono-qt5-declarative
+Conflicts:  voicecall-ui-reference
 BuildRequires:  qt5-qtcore-devel
 BuildRequires:  qt5-qtgui-devel
 BuildRequires:  qt5-qtdeclarative-devel
@@ -17,6 +18,7 @@ BuildRequires:  qt5-qtopengl-devel
 BuildRequires:  qt5-qtdeclarative-qtquick-devel
 BuildRequires:  qt5-qmake
 BuildRequires:  pkgconfig(Qt5Quick)
+BuildRequires:  pkgconfig(Qt5DBus)
 BuildRequires:  desktop-file-utils
 
 %description
@@ -47,6 +49,8 @@ rm -rf %{buildroot}
 %qmake5_install
 
 # >> install post
+mkdir -p %{buildroot}%{_libdir}/systemd/user/user-session.target.wants
+ln -s ../voicecall-ui-prestart.service %{buildroot}%{_libdir}/systemd/user/user-session.target.wants/
 # << install post
 
 desktop-file-install --delete-original       \
@@ -58,5 +62,8 @@ desktop-file-install --delete-original       \
 %{_bindir}
 %{_datadir}/%{name}
 %{_datadir}/applications/%{name}.desktop
+%{_datadir}/dbus-1/services/org.glacier.voicecall.ui.service
+%{_libdir}/systemd/user/voicecall-ui-prestart.service
+%{_libdir}/systemd/user/user-session.target.wants/voicecall-ui-prestart.service
 # >> files
 # << files

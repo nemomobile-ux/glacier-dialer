@@ -11,6 +11,6 @@ Icon=icon-launcher-phone
 X-Window-Icon=
 X-HildonDesk-ShowInToolbar=true
 X-Osso-Type=application/x-executable
-X-Maemo-Service=com.jolla.voicecall.ui
-X-Maemo-Method=com.jolla.voicecall.ui.show
+X-Maemo-Service=org.glacier.voicecall.ui
+X-Maemo-Method=org.glacier.voicecall.ui.show
 

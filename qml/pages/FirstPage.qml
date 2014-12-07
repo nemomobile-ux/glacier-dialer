@@ -57,15 +57,12 @@ Page {
 
         RowLayout {
             spacing: 20
+            Layout.maximumWidth: 80
             TextField {
                 id: dialedNumber
-                width: 200
-                height: 40
             }
             Button {
                 id: clearer
-                width: 120
-                height: 40
                 text: "Clear"
                 onClicked: {
                     dialedNumber.text = ""
@@ -77,7 +74,7 @@ Page {
             columnSpacing: 20
             rowSpacing: 20
             columns: 3
-
+            Layout.maximumWidth: 40
             DialerButton {
                 text: "1"
             }
@@ -116,20 +113,22 @@ Page {
             }
         }
         RowLayout {
+            spacing: 20
+            Layout.maximumWidth: 80
             Button {
                 text: "Call"
-                width: 60
                 onClicked: {
+                    console.log("Providers: " + telephone.providers)
+                    console.log("Modems: " + manager.modems[0])
                     var normalizedNumber = Person.normalizePhoneNumber(dialedNumber.text)
                     console.log("Calling: " + normalizedNumber)
-                    telephony.dial(normalizedNumber, "")
+                    telephone.dial(telephone.defaultProviderId, normalizedNumber)
                 }
             }
             Button {
                 text: "Hang up"
-                width: 60
                 onClicked: {
-                    telephony.hangupAll()
+                    telephone.hangupAll()
                 }
             }
         }
