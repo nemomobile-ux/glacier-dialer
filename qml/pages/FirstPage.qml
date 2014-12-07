@@ -48,6 +48,13 @@ Page {
     }
     VoiceCallManager {
         id: telephone
+        onActiveVoiceCallChanged: {
+            if(activeVoiceCall) {
+                __window.show()
+            } else {
+                __window.hide()
+            }
+        }
     }
 
     ColumnLayout {
@@ -116,19 +123,27 @@ Page {
             spacing: 20
             Layout.maximumWidth: 80
             Button {
-                text: "Call"
+                text: "Call / Answer"
                 onClicked: {
                     console.log("Providers: " + telephone.providers)
                     console.log("Modems: " + manager.modems[0])
                     var normalizedNumber = Person.normalizePhoneNumber(dialedNumber.text)
                     console.log("Calling: " + normalizedNumber)
-                    telephone.dial(telephone.defaultProviderId, normalizedNumber)
+
+                    if (!telephone.activeVoiceCall) {
+                        telephone.dial(telephone.defaultProviderId, normalizedNumber)
+                    } else {
+                        console.log("Answering to call from: " + telephone.activeVoiceCall.lineId)
+                        telephone.activeVoiceCall.answer()
+                    }
                 }
             }
             Button {
                 text: "Hang up"
                 onClicked: {
-                    telephone.hangupAll()
+                    if (telephone.activeVoiceCall) {
+                        telephone.activeVoiceCall.hangup()
+                    }
                 }
             }
         }
