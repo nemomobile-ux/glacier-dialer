@@ -28,8 +28,7 @@ import QtQuick.Layouts 1.0
 Item {
     width: parent.width
     height: 72
-    property Person contact
-    Component.onCompleted: contact = PeopleModel.personByPhoneNumber(model.remoteUid)
+
     RowLayout {
         anchors.fill: parent
         spacing: 10
@@ -41,15 +40,16 @@ Item {
         Label {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            text:contact ? contact.displayLabel : model.remoteUid
+            text: model.remoteUid
         }
         Button {
             Layout.fillWidth: false
             Layout.fillHeight: true
             width: 40
-            text: "Call"
+            text: "Delete"
             onClicked: {
                 pageItem.pageStack.pop()
+                commCallModel.deleteAt(model.index)
                 telephone.dial(telephone.defaultProviderId, model.remoteUid)
             }
         }

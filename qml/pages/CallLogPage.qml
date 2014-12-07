@@ -34,6 +34,7 @@ Page {
     }
     CommCallModel {
         id: commCallModel
+        groupBy: CommCallModel.GroupByContact
     }
 
     ListView {
