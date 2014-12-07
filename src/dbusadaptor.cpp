@@ -32,7 +32,7 @@
 #include "dbusadaptor.h"
 #include "declarativeview.h"
 
-DBusAdaptor::DBusAdaptor(DeclarativeView *m)
+DBusAdaptor::DBusAdaptor(QQuickWindow *m)
     : QDBusAbstractAdaptor(m), wm(m)
 {
 }
@@ -42,6 +42,6 @@ DBusAdaptor::DBusAdaptor(DeclarativeView *m)
 void DBusAdaptor::show(QStringList args)
 {
     Q_UNUSED(args);
-    wm->show();
+    wm->showFullScreen();
 }
 

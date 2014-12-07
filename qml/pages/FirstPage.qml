@@ -32,20 +32,6 @@ Page {
         id: tools
         title: "Glacier Dialer"
     }
-    property string modemPath: manager.modems.length > 0 ? manager.modems[0] : ""
-
-    OfonoModem {
-        id: ofonoModem
-        modemPath: modemPath
-    }
-    OfonoManager {
-        id: manager
-    }
-
-    OfonoVoiceCallManager {
-        id: telephony
-        modemPath: modemPath
-    }
     VoiceCallManager {
         id: telephone
         onActiveVoiceCallChanged: {

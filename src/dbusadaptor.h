@@ -33,7 +33,7 @@
 #define DBUSADAPTOR_H
 
 #include <QDBusAbstractAdaptor>
-#include "declarativeview.h"
+#include <QQuickWindow>
 
 class DBusAdaptor : public QDBusAbstractAdaptor
 {
@@ -41,13 +41,13 @@ class DBusAdaptor : public QDBusAbstractAdaptor
     Q_CLASSINFO("D-Bus Interface", "org.glacier.voicecall.ui")
 
 public:
-    explicit DBusAdaptor(DeclarativeView *manager);
+    explicit DBusAdaptor(QQuickWindow* manager);
     
 public slots:
     void show(QStringList args = QStringList());
 
 private:
-    DeclarativeView * const wm;
+    QQuickWindow* wm;
 };
 
 #endif

@@ -2,11 +2,9 @@
 TARGET = glacier-dialer
 QT += qml quick dbus
 SOURCES += src/glacier-dialer.cpp \
-    src/dbusadaptor.cpp \
-    src/declarativeview.cpp
+    src/dbusadaptor.cpp
 
-HEADERS += src/dbusadaptor.h \
-    src/declarativeview.h
+HEADERS += src/dbusadaptor.h
 
 OTHER_FILES += qml/glacier-dialer.qml \
     qml/pages/FirstPage.qml \

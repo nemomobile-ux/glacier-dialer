@@ -27,6 +27,7 @@ import "pages"
 
 ApplicationWindow
 {
+    initialPage: FirstPage {}
     contentOrientation: Screen.orientation
 }
 

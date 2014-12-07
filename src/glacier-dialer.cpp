@@ -32,13 +32,14 @@
 #include <QtQuick>
 #endif
 #include <QtGui/QGuiApplication>
-#include "declarativeview.h"
+#include "dbusadaptor.h"
 
 #include <QtQml>
 #include <QtQuick/QQuickView>
 #include <QtCore/QString>
 #include <QScreen>
-
+#include <QDBusConnection>
+#include <QCoreApplication>
 
 int main(int argc, char *argv[])
 {
@@ -54,14 +55,19 @@ int main(int argc, char *argv[])
     QObject *topLevel = engine->rootObjects().value(0);
     QQuickWindow *window = qobject_cast<QQuickWindow *>(topLevel);
     setenv("QT_QUICK_CONTROLS_STYLE", "Nemo", 1);
-    DeclarativeView view(engine, window);
-    view.setSource(QUrl::fromLocalFile("/usr/share/glacier-dialer/qml/pages/FirstPage.qml"));
+
     if ( !window ) {
         qWarning("Error: Your root item has to be a Window.");
         return -1;
     }
-    if (!app.arguments().contains("-prestart")) {
-        view.showFullScreen();
+    if (app.arguments().contains("-prestart")) {
+        new DBusAdaptor(window);
+        QDBusConnection::sessionBus().registerService("org.glacier.voicecall.ui");
+        if (!QDBusConnection::sessionBus().registerObject("/", window))
+            qWarning() << Q_FUNC_INFO << "Cannot register DBus object!";
+        QObject::connect(engine, SIGNAL(quit()), window, SLOT(close()));
+    } else {
+        window->showFullScreen();
     }
     return app.exec();
 }
