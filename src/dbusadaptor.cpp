@@ -30,7 +30,6 @@
  */
 
 #include "dbusadaptor.h"
-#include "declarativeview.h"
 
 DBusAdaptor::DBusAdaptor(QQuickWindow *m)
     : QDBusAbstractAdaptor(m), wm(m)

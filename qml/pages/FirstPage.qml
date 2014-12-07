@@ -118,7 +118,6 @@ Page {
                 text: "Call / Answer"
                 onClicked: {
                     console.log("Providers: " + telephone.providers)
-                    console.log("Modems: " + manager.modems[0])
                     var normalizedNumber = Person.normalizePhoneNumber(dialedNumber.text)
                     console.log("Calling: " + normalizedNumber)
 
