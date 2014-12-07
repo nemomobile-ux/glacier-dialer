@@ -50,9 +50,10 @@ Page {
         id: telephone
         onActiveVoiceCallChanged: {
             if(activeVoiceCall) {
+                callLabel.text = "Getting call from :" + activeVoiceCall.lineId
                 __window.show()
             } else {
-                __window.hide()
+                callLabel.text = ""
             }
         }
     }
@@ -74,6 +75,11 @@ Page {
                 onClicked: {
                     dialedNumber.text = ""
                 }
+            }
+        }
+        RowLayout {
+            Label {
+                id: callLabel
             }
         }
 
