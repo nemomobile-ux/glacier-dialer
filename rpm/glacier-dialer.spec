@@ -10,6 +10,8 @@ Requires:   qt5-qtquickcontrols-nemo
 Requires:   voicecall-qt5
 Requires:   nemo-qml-plugin-contacts-qt5
 Requires:   libqofono-qt5-declarative
+Requires:   commhistory-daemon
+Requires:   libcommhistory-qt5-declarative
 Conflicts:  voicecall-ui-reference
 BuildRequires:  qt5-qtcore-devel
 BuildRequires:  qt5-qtgui-devel

@@ -18,35 +18,28 @@
 */
 
 import QtQuick 2.1
-import QtQuick.Window 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Nemo 1.0
 import QtQuick.Controls.Styles.Nemo 1.0
-import org.nemomobile.voicecall 1.0
+import QtQuick.Layouts 1.0
+import org.nemomobile.contacts 1.0
+import org.nemomobile.commhistory 1.0
 
-import "pages"
-
-ApplicationWindow
-{
-    initialPage: FirstPage {
-        id: pageItem
+Page {
+    id: callLogPage
+    headerTools: HeaderToolsLayout {
+        id: tools
+        title: "Call log"
+        showBackButton: true;
     }
-    contentOrientation: Screen.orientation
-    VoiceCallManager {
-        id: telephone
-        onActiveVoiceCallChanged: {
-            if(activeVoiceCall) {
-                if (activeVoiceCall.isIncoming) {
-                    pageItem.callLabel.text = "Getting call from :" + activeVoiceCall.lineId
-                } else {
-                    pageItem.callLabel.text = "Calling number: " + activeVoiceCall.lineId
-                }
-                __window.show()
-            } else {
-                pageItem.callLabel.text = ""
-            }
-        }
+    CommCallModel {
+        id: commCallModel
+    }
+
+    ListView {
+        anchors.fill: parent
+        clip: true
+        model: commCallModel
+        delegate: LogDelegate {}
     }
 }
-
-

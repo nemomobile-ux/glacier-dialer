@@ -8,11 +8,12 @@ HEADERS += src/dbusadaptor.h
 
 OTHER_FILES += qml/glacier-dialer.qml \
     qml/pages/FirstPage.qml \
-    qml/pages/SecondPage.qml \
     rpm/glacier-dialer.spec \
     glacier-dialer.desktop \
     qml/pages/DialerButton.qml \
-    org.glacier.voicecall.ui.service
+    org.glacier.voicecall.ui.service \
+    qml/pages/CallLogPage.qml \
+    qml/pages/LogDelegate.qml
 
 target.path = /usr/bin
 
@@ -24,7 +25,9 @@ qml.path = /usr/share/glacier-dialer/qml
 
 pages.files = qml/pages/FirstPage.qml \
     qml/pages/SecondPage.qml \
-    qml/pages/DialerButton.qml
+    qml/pages/DialerButton.qml \
+    qml/pages/CallLogPage.qml \
+    qml/pages/LogDelegate.qml
 pages.path = /usr/share/glacier-dialer/qml/pages
 
 systemd_dbus_service.path = $${INSTALL_ROOT}/usr/share/dbus-1/services

@@ -27,37 +27,27 @@ import MeeGo.QOfono 0.2
 import org.nemomobile.contacts 1.0
 
 Page {
-    id: page
     headerTools: HeaderToolsLayout {
         id: tools
         title: "Glacier Dialer"
     }
-    VoiceCallManager {
-        id: telephone
-        onActiveVoiceCallChanged: {
-            if(activeVoiceCall) {
-                callLabel.text = "Getting call from :" + activeVoiceCall.lineId
-                __window.show()
-            } else {
-                callLabel.text = ""
-            }
-        }
-    }
-
+    property alias callLabel: callLabel
     ColumnLayout {
+        id: rootColumn
         spacing: 20
         anchors.centerIn: parent
         anchors.fill: parent
 
         RowLayout {
             spacing: 20
-            Layout.maximumWidth: 80
             TextField {
+                Layout.fillWidth: false
                 id: dialedNumber
             }
             Button {
                 id: clearer
                 text: "Clear"
+                Layout.fillWidth: false
                 onClicked: {
                     dialedNumber.text = ""
                 }
@@ -66,55 +56,77 @@ Page {
         RowLayout {
             Label {
                 id: callLabel
+                Layout.fillWidth: false
+            }
+            Button {
+                id: callLogBtn
+                text: "Call log"
+                Layout.fillWidth: false
+                onClicked: {
+                    console.log("Resolving to: " + Qt.resolvedUrl("CallLogPage.qml"))
+                    pageItem.pageStack.push({item: Qt.resolvedUrl("CallLogPage.qml"), properties: {telephone: telephone}})
+                }
             }
         }
 
         GridLayout {
+            width: rootColumn.width
             columnSpacing: 20
             rowSpacing: 20
             columns: 3
-            Layout.maximumWidth: 40
             DialerButton {
+                Layout.fillWidth: false
                 text: "1"
             }
             DialerButton {
+                Layout.fillWidth: false
                 text: "2"
             }
             DialerButton {
+                Layout.fillWidth: false
                 text: "3"
             }
             DialerButton {
+                Layout.fillWidth: false
                 text: "4"
             }
             DialerButton {
+                Layout.fillWidth: false
                 text: "5"
             }
             DialerButton {
+                Layout.fillWidth: false
                 text: "6"
             }
             DialerButton {
+                Layout.fillWidth: false
                 text: "7"
             }
             DialerButton {
+                Layout.fillWidth: false
                 text: "8"
             }
             DialerButton {
+                Layout.fillWidth: false
                 text: "9"
             }
             DialerButton {
+                Layout.fillWidth: false
                 text: "+"
             }
             DialerButton {
+                Layout.fillWidth: false
                 text: "0"
             }
             DialerButton {
+                Layout.fillWidth: false
                 text: "#"
             }
         }
         RowLayout {
             spacing: 20
-            Layout.maximumWidth: 80
             Button {
+                Layout.fillWidth: false
                 text: "Call / Answer"
                 onClicked: {
                     console.log("Providers: " + telephone.providers)
@@ -130,6 +142,7 @@ Page {
                 }
             }
             Button {
+                Layout.fillWidth: false
                 text: "Hang up"
                 onClicked: {
                     if (telephone.activeVoiceCall) {

@@ -21,14 +21,37 @@ import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Nemo 1.0
 import QtQuick.Controls.Styles.Nemo 1.0
+import org.nemomobile.contacts 1.0
+import org.nemomobile.commhistory 1.0
 import QtQuick.Layouts 1.0
 
-Page {
-    id: page
-
+Item {
+    width: parent.width
+    height: 72
+    property Person contact
+    Component.onCompleted: contact = PeopleModel.personByPhoneNumber(model.remoteUid)
+    RowLayout {
+        anchors.fill: parent
+        spacing: 10
+        Label {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            text: model.isMissedCall ? 'missed' : (model.direction == CommCallModel.Inbound ? 'received' : 'initiated')
+        }
+        Label {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            text:contact ? contact.displayLabel : model.remoteUid
+        }
+        Button {
+            Layout.fillWidth: false
+            Layout.fillHeight: true
+            width: 40
+            text: "Call"
+            onClicked: {
+                pageItem.pageStack.pop()
+                telephone.dial(telephone.defaultProviderId, model.remoteUid)
+            }
+        }
+    }
 }
-
-
-
-
-
