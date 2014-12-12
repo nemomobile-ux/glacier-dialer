@@ -41,7 +41,7 @@ ApplicationWindow
                 } else {
                     pageItem.callLabel.text = "Calling number: " + activeVoiceCall.lineId
                 }
-                __window.show()
+                __window.showFullScreen()
             } else {
                 pageItem.callLabel.text = ""
             }
