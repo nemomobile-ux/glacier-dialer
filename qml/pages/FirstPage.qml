@@ -24,46 +24,71 @@ import QtQuick.Controls.Styles.Nemo 1.0
 import QtQuick.Layouts 1.0
 import org.nemomobile.voicecall 1.0
 import MeeGo.QOfono 0.2
-
+import org.nemomobile.contacts 1.0
 
 Page {
-    id: page
     headerTools: HeaderToolsLayout {
         id: tools
         title: "Glacier Dialer"
     }
-    VoiceCallManager {
-        id: telephone
-    }
-    OfonoVoiceCallManager {
-        id: ofonocallmanager
-    }
+    property alias callLabel: callLabel
     ColumnLayout {
-        spacing: 40
+        id: rootColumn
+        spacing: 20
         anchors.centerIn: parent
+        anchors.fill: parent
+        anchors.topMargin: 30
 
         RowLayout {
             spacing: 20
-            TextField {
+            TextEdit {
+                Layout.fillWidth: true
+                Layout.preferredWidth: 240
+                Layout.preferredHeight: 40
+                font.pointSize: 52
+                color: "steelblue"
                 id: dialedNumber
-                width: 200
-                height: 40
             }
             Button {
                 id: clearer
-                width: 120
-                height: 40
                 text: "Clear"
+                Layout.fillWidth: true
+                Layout.preferredHeight: 40
                 onClicked: {
                     dialedNumber.text = ""
                 }
             }
         }
+        RowLayout {
+            Label {
+                id: callLabel
+                Layout.fillHeight: true
+            }
+        }
+
+        RowLayout {
+            Button {
+                id: callLogBtn
+                text: "Call log"
+                Layout.fillWidth: true
+                onClicked: {
+                    pageItem.pageStack.push({item: Qt.resolvedUrl("CallLogPage.qml"), properties: {telephone: telephone}})
+                }
+            }
+        }
 
         GridLayout {
+            width: rootColumn.width
+            anchors {
+                leftMargin: 10
+                rightMargin: 10
+                topMargin: 5
+                bottomMargin: 10
+            }
+
             columnSpacing: 20
             rowSpacing: 20
-
+            columns: 3
             DialerButton {
                 text: "1"
             }
@@ -92,7 +117,7 @@ Page {
                 text: "9"
             }
             DialerButton {
-                text: "*"
+                text: "+"
             }
             DialerButton {
                 text: "0"
@@ -100,7 +125,33 @@ Page {
             DialerButton {
                 text: "#"
             }
+        }
+        RowLayout {
+            spacing: 20
+            Button {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                text: "Call / Answer"
+                onClicked: {
+                    var normalizedNumber = Person.normalizePhoneNumber(dialedNumber.text)
 
+                    if (!telephone.activeVoiceCall) {
+                        telephone.dial(telephone.defaultProviderId, normalizedNumber)
+                    } else {
+                        telephone.activeVoiceCall.answer()
+                    }
+                }
+            }
+            Button {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                text: "Hang up"
+                onClicked: {
+                    if (telephone.activeVoiceCall) {
+                        telephone.activeVoiceCall.hangup()
+                    }
+                }
+            }
         }
     }
 }

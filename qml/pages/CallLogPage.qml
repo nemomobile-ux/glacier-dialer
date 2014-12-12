@@ -22,13 +22,25 @@ import QtQuick.Controls 1.0
 import QtQuick.Controls.Nemo 1.0
 import QtQuick.Controls.Styles.Nemo 1.0
 import QtQuick.Layouts 1.0
+import org.nemomobile.contacts 1.0
+import org.nemomobile.commhistory 1.0
 
 Page {
-    id: page
+    id: callLogPage
+    headerTools: HeaderToolsLayout {
+        id: tools
+        title: "Call log"
+        showBackButton: true;
+    }
+    CommCallModel {
+        id: commCallModel
+        groupBy: CommCallModel.GroupByContact
+    }
 
+    ListView {
+        anchors.fill: parent
+        clip: true
+        model: commCallModel
+        delegate: LogDelegate {}
+    }
 }
-
-
-
-
-

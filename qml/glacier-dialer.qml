@@ -22,13 +22,31 @@ import QtQuick.Window 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Nemo 1.0
 import QtQuick.Controls.Styles.Nemo 1.0
+import org.nemomobile.voicecall 1.0
 
 import "pages"
 
 ApplicationWindow
 {
-    initialPage: FirstPage {}
+    initialPage: FirstPage {
+        id: pageItem
+    }
     contentOrientation: Screen.orientation
+    VoiceCallManager {
+        id: telephone
+        onActiveVoiceCallChanged: {
+            if(activeVoiceCall) {
+                if (activeVoiceCall.isIncoming) {
+                    pageItem.callLabel.text = "Getting call from :" + activeVoiceCall.lineId
+                } else {
+                    pageItem.callLabel.text = "Calling number: " + activeVoiceCall.lineId
+                }
+                __window.showFullScreen()
+            } else {
+                pageItem.callLabel.text = ""
+            }
+        }
+    }
 }
 
 
