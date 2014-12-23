@@ -32,15 +32,15 @@ Page {
         title: "Call log"
         showBackButton: true;
     }
-    CommCallModel {
-        id: commCallModel
-        groupBy: CommCallModel.GroupByContact
-    }
 
     ListView {
+        id: list
         anchors.fill: parent
+        anchors.topMargin: 20
         clip: true
         model: commCallModel
-        delegate: LogDelegate {}
+        delegate: LogDelegate {
+            contact: model.contactIds.length ? peopleModel.personById(model.contactIds[0]) : null
+        }
     }
 }

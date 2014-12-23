@@ -26,32 +26,39 @@ import org.nemomobile.commhistory 1.0
 import QtQuick.Layouts 1.0
 
 Item {
+    id: root
     width: parent.width
     height: 72
-
+    property Person contact
     RowLayout {
         anchors.fill: parent
         spacing: 10
         Label {
+            id: directionLabel
             Layout.fillWidth: true
             Layout.fillHeight: true
             text: model.isMissedCall ? 'missed' : (model.direction == CommCallModel.Inbound ? 'received' : 'initiated')
         }
         Label {
+            id: contactLabel
             Layout.fillWidth: true
             Layout.fillHeight: true
-            text: model.remoteUid
+            text: contact ? contact.displayLabel.substring(0,10): model.remoteUid
         }
-        Button {
-            Layout.fillWidth: false
+        Label {
+            id: dateLabel
+            Layout.fillWidth: true
             Layout.fillHeight: true
-            width: 40
-            text: "Delete"
-            onClicked: {
-                pageItem.pageStack.pop()
-                commCallModel.deleteAt(model.index)
-                telephone.dial(telephone.defaultProviderId, model.remoteUid)
-            }
+            text: Qt.formatDateTime(model.startTime, Qt.DefaultLocaleShortDate)
+        }
+    }
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            telephone.dial(telephone.defaultProviderId, model.remoteUid)
+        }
+        onPressAndHold: {
+            commCallModel.deleteAt(model.index)
         }
     }
 }

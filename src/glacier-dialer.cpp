@@ -56,6 +56,7 @@ int main(int argc, char *argv[])
     QQuickWindow *window = qobject_cast<QQuickWindow *>(topLevel);
     setenv("QT_QUICK_CONTROLS_STYLE", "Nemo", 1);
     engine->rootContext()->setContextProperty("__window", window);
+    window->setTitle("Dialer");
     if ( !window ) {
         qWarning("Error: Your root item has to be a Window.");
         return -1;

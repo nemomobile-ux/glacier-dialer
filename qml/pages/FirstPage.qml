@@ -27,132 +27,57 @@ import MeeGo.QOfono 0.2
 import org.nemomobile.contacts 1.0
 
 Page {
+    id: first
     headerTools: HeaderToolsLayout {
         id: tools
         title: "Glacier Dialer"
+        tools: [
+            ToolButton {
+                iconSource: "image://theme/icon-m-toolbar-callhistory-white"
+                onClicked: {
+                    dialer_page.visible = false
+                    call_log_page.visible = true
+                }
+            },
+            ToolButton {
+                iconSource: "image://theme/icon-m-toolbar-view-menu-white-selected"
+                onClicked: {
+                    call_log_page.visible = false
+                    dialer_page.visible = true
+                }
+            },
+            ToolButton {
+                iconSource: "image://theme/icon-m-telephony-contact-avatar"
+            }
+        ]
+        drawerLevels: [
+            Button {
+                visible: dialer_page.visible
+                text: "Edit speed dial"
+                onClicked: {
+                    main.speedDialEditor = true
+                }
+            },
+            Button {
+                visible: call_log_page.visible
+                text: "Mark all as read"
+                onClicked: {
+                    commCallModel.markAllRead()
+                }
+            }
+
+        ]
     }
-    property alias callLabel: callLabel
-    ColumnLayout {
-        id: rootColumn
-        spacing: 20
-        anchors.centerIn: parent
-        anchors.fill: parent
-        anchors.topMargin: 30
-
-        RowLayout {
-            spacing: 20
-            TextEdit {
-                Layout.fillWidth: true
-                Layout.preferredWidth: 240
-                Layout.preferredHeight: 40
-                font.pointSize: 52
-                color: "steelblue"
-                id: dialedNumber
-            }
-            Button {
-                id: clearer
-                text: "Clear"
-                Layout.fillWidth: true
-                Layout.preferredHeight: 40
-                onClicked: {
-                    dialedNumber.text = ""
-                }
-            }
-        }
-        RowLayout {
-            Label {
-                id: callLabel
-                Layout.fillHeight: true
-            }
-        }
-
-        RowLayout {
-            Button {
-                id: callLogBtn
-                text: "Call log"
-                Layout.fillWidth: true
-                onClicked: {
-                    pageItem.pageStack.push({item: Qt.resolvedUrl("CallLogPage.qml"), properties: {telephone: telephone}})
-                }
-            }
-        }
-
-        GridLayout {
-            width: rootColumn.width
-            anchors {
-                leftMargin: 10
-                rightMargin: 10
-                topMargin: 5
-                bottomMargin: 10
-            }
-
-            columnSpacing: 20
-            rowSpacing: 20
-            columns: 3
-            DialerButton {
-                text: "1"
-            }
-            DialerButton {
-                text: "2"
-            }
-            DialerButton {
-                text: "3"
-            }
-            DialerButton {
-                text: "4"
-            }
-            DialerButton {
-                text: "5"
-            }
-            DialerButton {
-                text: "6"
-            }
-            DialerButton {
-                text: "7"
-            }
-            DialerButton {
-                text: "8"
-            }
-            DialerButton {
-                text: "9"
-            }
-            DialerButton {
-                text: "+"
-            }
-            DialerButton {
-                text: "0"
-            }
-            DialerButton {
-                text: "#"
-            }
-        }
-        RowLayout {
-            spacing: 20
-            Button {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                text: "Call / Answer"
-                onClicked: {
-                    var normalizedNumber = Person.normalizePhoneNumber(dialedNumber.text)
-
-                    if (!telephone.activeVoiceCall) {
-                        telephone.dial(telephone.defaultProviderId, normalizedNumber)
-                    } else {
-                        telephone.activeVoiceCall.answer()
-                    }
-                }
-            }
-            Button {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                text: "Hang up"
-                onClicked: {
-                    if (telephone.activeVoiceCall) {
-                        telephone.activeVoiceCall.hangup()
-                    }
-                }
-            }
-        }
+    CallLogPage {
+        id: call_log_page
+        visible: false
+    }
+    DialerPage {
+        id: dialer_page
+        visible: false
+    }
+    Component.onCompleted: {
+        dialer_page.visible = true
     }
 }
 
