@@ -51,8 +51,8 @@ Page {
                     : 'image://theme/icon-m-telephony-contact-avatar';
             Layout.fillWidth: false
             Layout.fillHeight: false
-            Layout.preferredHeight: 140
-            Layout.preferredWidth: 140
+            Layout.preferredHeight: 280
+            Layout.preferredWidth: 280
         }
         Text {
             id:tLineId

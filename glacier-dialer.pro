@@ -15,7 +15,10 @@ OTHER_FILES += qml/glacier-dialer.qml \
     qml/pages/CallLogPage.qml \
     qml/pages/LogDelegate.qml \
     qml/pages/CallView.qml \
-    qml/pages/DialerPage.qml
+    qml/pages/DialerPage.qml \
+    qml/pages/ContactsPage.qml \
+    qml/pages/ContactDelegate.qml \
+    qml/pages/ContactDetails.qml
 
 target.path = /usr/bin
 
@@ -31,7 +34,10 @@ pages.files = qml/pages/FirstPage.qml \
     qml/pages/CallLogPage.qml \
     qml/pages/LogDelegate.qml \
     qml/pages/CallView.qml \
-    qml/pages/DialerPage.qml
+    qml/pages/DialerPage.qml \
+    qml/pages/ContactsPage.qml \
+    qml/pages/ContactDelegate.qml \
+    qml/pages/ContactDetails.qml
 pages.path = /usr/share/glacier-dialer/qml/pages
 
 systemd_dbus_service.path = $${INSTALL_ROOT}/usr/share/dbus-1/services

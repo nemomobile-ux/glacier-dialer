@@ -37,6 +37,7 @@ Page {
                 onClicked: {
                     dialer_page.visible = false
                     call_log_page.visible = true
+                    contacts_page.visible = false
                 }
             },
             ToolButton {
@@ -44,10 +45,16 @@ Page {
                 onClicked: {
                     call_log_page.visible = false
                     dialer_page.visible = true
+                    contacts_page.visible = false
                 }
             },
             ToolButton {
                 iconSource: "image://theme/icon-m-telephony-contact-avatar"
+                onClicked: {
+                    call_log_page.visible = false
+                    dialer_page.visible = false
+                    contacts_page.visible = true
+                }
             }
         ]
         drawerLevels: [
@@ -76,6 +83,11 @@ Page {
         id: dialer_page
         visible: false
     }
+    ContactsPage {
+        id: contacts_page
+        visible: false
+    }
+
     Component.onCompleted: {
         dialer_page.visible = true
     }

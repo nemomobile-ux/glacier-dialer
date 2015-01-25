@@ -38,6 +38,7 @@ ApplicationWindow
     property Person activeVoiceCallPerson
     property string activationReason: 'invoked'
     property bool speedDialEditor: false
+    property alias page: pageItem
     VoiceCallManager {
         id: telephone
         onActiveVoiceCallChanged: {
