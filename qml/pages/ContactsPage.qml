@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Aleksi Suomalainen <suomalainen.aleksi@gmail.com>
+ * Copyright 2015 Aleksi Suomalainen <suomalainen.aleksi@gmail.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -22,25 +22,15 @@ import QtQuick.Controls 1.0
 import QtQuick.Controls.Nemo 1.0
 import QtQuick.Controls.Styles.Nemo 1.0
 import QtQuick.Layouts 1.0
-import org.nemomobile.contacts 1.0
-import org.nemomobile.commhistory 1.0
 
 Page {
-    id: callLogPage
-    headerTools: HeaderToolsLayout {
-        id: tools
-        title: "Call log"
-        showBackButton: true;
-    }
-
+    id: contacts
     ListView {
-        id: list
+        model: peopleModel
         anchors.fill: parent
         anchors.topMargin: 20
-        clip: true
-        model: commCallModel
-        delegate: LogDelegate {
-            contact: model.contactIds.length ? peopleModel.personById(model.contactIds[0]) : null
+        delegate: ContactDelegate {
+            person: peopleModel.personByRow(index)
         }
     }
 }

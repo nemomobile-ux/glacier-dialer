@@ -23,29 +23,71 @@ import QtQuick.Controls 1.0
 import QtQuick.Controls.Nemo 1.0
 import QtQuick.Controls.Styles.Nemo 1.0
 import org.nemomobile.voicecall 1.0
+import org.nemomobile.contacts 1.0
+import org.nemomobile.commhistory 1.0
 
 import "pages"
 
 ApplicationWindow
 {
+    id: main
     initialPage: FirstPage {
         id: pageItem
     }
     contentOrientation: Screen.orientation
+    property Person activeVoiceCallPerson
+    property string activationReason: 'invoked'
+    property bool speedDialEditor: false
+    property alias page: pageItem
     VoiceCallManager {
         id: telephone
         onActiveVoiceCallChanged: {
             if(activeVoiceCall) {
-                if (activeVoiceCall.isIncoming) {
-                    pageItem.callLabel.text = "Getting call from :" + activeVoiceCall.lineId
+                main.activeVoiceCallPerson = peopleModel.personByPhoneNumber(activeVoiceCall.lineId, true);
+                console.error(JSON.stringify(main.activeVoiceCallPerson))
+                pageItem.pageStack.push({
+                                            "item": Qt.resolvedUrl("pages/CallView.qml"),
+                                            "properties": {
+                                                "main": main,
+                                                "telephone": telephone
+                                            },
+                                            "immediate": true
+                                        })
+                __window.setTitle("Dialer")
+                if(!__window.visible)
+                {
+                    main.activationReason = "activeVoiceCallChanged"
+                    __window.showFullScreen()
                 } else {
-                    pageItem.callLabel.text = "Calling number: " + activeVoiceCall.lineId
+                    __window.raise()
                 }
-                __window.showFullScreen()
             } else {
-                pageItem.callLabel.text = ""
+                pageItem.pageStack.pop({"immediate":true})
+                main.activeVoiceCallPerson = null
+                if (main.activationReason != "invoked") {
+                    main.activationReason = "invoked"
+                    __window.close()
+                }
             }
         }
+    }
+    function secondsToTimeString(seconds) {
+        var h = Math.floor(seconds / 3600);
+        var m = Math.floor((seconds - (h * 3600)) / 60);
+        var s = seconds - h * 3600 - m * 60;
+        if(h < 10) h = '0' + h;
+        if(m < 10) m = '0' + m;
+        if(s < 10) s = '0' + s;
+        return '' + h + ':' + m + ':' + s;
+    }
+    PeopleModel {
+        id: peopleModel
+        filterType: PeopleModel.FilterAll
+    }
+    CommCallModel {
+        id: commCallModel
+        groupBy: CommCallModel.GroupByContact
+        resolveContacts: true
     }
 }
 

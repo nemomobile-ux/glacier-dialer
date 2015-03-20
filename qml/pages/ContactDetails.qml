@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Aleksi Suomalainen <suomalainen.aleksi@gmail.com>
+ * Copyright 2015 Aleksi Suomalainen <suomalainen.aleksi@gmail.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -16,7 +16,6 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
 */
-
 import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Nemo 1.0
@@ -24,28 +23,10 @@ import QtQuick.Controls.Styles.Nemo 1.0
 import QtQuick.Layouts 1.0
 import org.nemomobile.contacts 1.0
 
-Rectangle {
-    id: btn
-    Layout.fillWidth: true
-    Layout.fillHeight: true
-    Layout.preferredHeight: 140
-    Layout.preferredWidth: 140
-    color: "transparent"
-    property int index
-    property string text: {
-        if (index <= 8) {
-            return "" + (index + 1)
-        }
-
-        if (index > 8) {
-            switch(index) {
-            case 9: return "+";
-            case 10: return "0";
-            case 11: return "*";
-            }
-        }
-    }
+Page {
+    id: contactdetails
     property Person person
+    headerTools: HeaderToolsLayout { showBackButton: true; title: person.displayLabel}
     onPersonChanged: {
         person.avatarPathChanged.connect(avatarPotentiallyChanged)
         avatarPotentiallyChanged()
@@ -56,31 +37,37 @@ Rectangle {
         else
             contactImage.source = person.avatarPath
     }
-    Image {
-        id: contactImage
+    Flickable {
         anchors.fill: parent
-    }
-
-    Text {
-        id: numberText
-        color: "steelblue"
-        font.pointSize: 72
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        font.bold: true
-        text: btn.text
-        style: Text.Outline
-        styleColor : "black"
-    }
-
-    MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            dialedNumber.insert(dialedNumber.cursorPosition,btn.text)
-        }
-        onPressAndHold: {
-            var normalizedNumber = person.phoneDetails[0].normalizedNumber
-            telephone.dial(telephone.defaultProviderId, normalizedNumber)
+        contentHeight: rootColumn.height
+        ColumnLayout {
+            id: rootColumn
+            anchors.fill: parent
+            spacing: 20
+            Image {
+                id: contactImage
+                Layout.preferredHeight: 240
+                Layout.preferredWidth: 240
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+            Label {
+                text: "First name"
+            }
+            TextField {
+                text: person.firstName
+            }
+            Label {
+                text: "Last name"
+            }
+            TextField {
+                text: person.lastName
+            }
+            Label {
+                text: "Phone number"
+            }
+            TextField {
+                text: person.phoneDetails[0].normalizedNumber
+            }
         }
     }
 }
