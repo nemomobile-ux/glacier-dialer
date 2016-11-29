@@ -29,7 +29,7 @@ Page {
     id: callLogPage
     headerTools: HeaderToolsLayout {
         id: tools
-        title: "Call log"
+        title: qsTr("Call log")
         showBackButton: true;
     }
 

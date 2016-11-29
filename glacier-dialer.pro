@@ -47,3 +47,5 @@ systemd_ui_prestart_service.path = $${INSTALL_ROOT}/usr/lib/systemd/user
 systemd_ui_prestart_service.files = voicecall-ui-prestart.service
 
 INSTALLS += target desktop qml pages systemd_dbus_service systemd_ui_prestart_service
+
+TRANSLATIONS += i18n/glacier-dialer.ts

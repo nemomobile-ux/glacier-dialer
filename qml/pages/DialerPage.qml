@@ -85,7 +85,7 @@ Page {
             }
             Text {
                 color: "white"
-                text: "Call"
+                text: qsTr("Call")
                 font.pointSize: 32
                 anchors.right: parent.right
                 anchors.bottom: parent.bottom

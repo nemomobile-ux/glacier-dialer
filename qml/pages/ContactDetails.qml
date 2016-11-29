@@ -51,19 +51,19 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
             }
             Label {
-                text: "First name"
+                text: qsTr("First name")
             }
             TextField {
                 text: person.firstName
             }
             Label {
-                text: "Last name"
+                text: qsTr("Last name")
             }
             TextField {
                 text: person.lastName
             }
             Label {
-                text: "Phone number"
+                text: qsTr("Phone number")
             }
             TextField {
                 text: person.phoneDetails[0].normalizedNumber

@@ -28,7 +28,7 @@ Page {
     id: call
     headerTools: HeaderToolsLayout {
         id: tools
-        title: "Call"
+        title: qsTr("Call")
     }
     state: telephone.activeVoiceCall ? telephone.activeVoiceCall.statusText : 'disconnected'
     states: [
@@ -91,14 +91,14 @@ Page {
             spacing: 40
             anchors.horizontalCenter: parent.horizontalCenter
             Button {
-                text: "Answer"
+                text: qsTr("Answer")
                 Layout.fillWidth: true
                 Layout.fillHeight: false
                 onClicked: if (telephone.activeVoiceCall) telephone.activeVoiceCall.answer()
                 visible: call.state == "incoming"
             }
             Button {
-                text: "Hang up"
+                text: qsTr("Hang up")
                 Layout.fillWidth: true
                 Layout.fillHeight: false
                 onClicked: {
