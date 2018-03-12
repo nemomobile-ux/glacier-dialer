@@ -16,87 +16,99 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
 */
-import QtQuick 2.1
+import QtQuick 2.6
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Nemo 1.0
 import QtQuick.Controls.Styles.Nemo 1.0
 import QtQuick.Layouts 1.0
 import org.nemomobile.contacts 1.0
 
+import "../components"
+
 Page {
     id: dialer
-    ColumnLayout {
-        id: rootColumn
-        spacing: 5
-        anchors.centerIn: parent
-        anchors.fill: parent
-        anchors.topMargin: 15
 
-        RowLayout {
-            spacing: 20
+    Item {
+        id: numForDialing
+        height: Theme.itemHeightLarge
+        width: parent.width
 
-            TextEdit {
-                id: dialedNumber
-                Layout.fillWidth: true
-                Layout.preferredWidth: 240
-                font.pointSize: 52
-                color: "steelblue"
-                horizontalAlignment: TextEdit.AlignRight
-            }
+        TextEdit {
+            id: dialedNumber
+            width: dialer.width-dialedNumber.height
+            height: Theme.itemHeightLarge
+            font.pointSize: Theme.fontSizeExtraLarge
+            color: "steelblue"
+            horizontalAlignment: TextEdit.AlignRight
         }
-        GridLayout {
-            width: rootColumn.width
-            anchors {
-                leftMargin: 10
-                rightMargin: 10
-                topMargin: 5
-                bottomMargin: 10
+
+        Image{
+            width: dialedNumber.height
+            height: width
+            source: "image://theme/angle-right"
+
+            anchors{
+                left: dialedNumber.right
+                verticalCenter: dialedNumber.verticalCenter
             }
 
-            columnSpacing: 0
-            rowSpacing: 0
-            columns: 3
-            Repeater {
-                model: [0,1,2,3,4,5,6,7,8,9,10,11]
-                delegate: DialerButton {
-                    index: model.index
-                    person: {
-                        if (model.index < peopleModel.count) {
-                            return peopleModel.personByRow(index)
-                        } else {
-                            return null
-                        }
-                    }
-                }
-            }
-        }
-        Rectangle {
-            id: dimmer
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            Layout.preferredHeight: 35
-            height: 35
-            width: parent.width
-            color: "green"
-
-            gradient: Gradient {
-                GradientStop { position: 0; color: "green" }
-                GradientStop { position: 1.0; color: "transparent" }
-            }
-            Text {
-                color: "white"
-                text: "Call"
-                font.pointSize: 32
-                anchors.right: parent.right
-                anchors.bottom: parent.bottom
-            }
-            MouseArea {
+            MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    var normalizedNumber = Person.normalizePhoneNumber(dialedNumber.text)
-                    telephone.dial(telephone.defaultProviderId, normalizedNumber)
+                    dialedNumber.text = dialedNumber.text.substring(0, dialedNumber.text.length - 1)
                 }
             }
         }
     }
+    Grid {
+        id: dialerButtons
+        width: parent.width
+        height: parent.height-numForDialing.height-dimmer.height-Theme.itemSpacingLarge*3
+        anchors {
+            top: numForDialing.bottom
+            topMargin: 5
+            bottomMargin: 10
+        }
+
+        columns: 3
+
+        Repeater {
+            model: [0,1,2,3,4,5,6,7,8,9,10,11]
+            delegate: DialerButton {
+                width: dialerButtons.width/3
+                height: dialerButtons.height/4
+                index: model.index
+            }
+        }
+    }
+    Rectangle {
+        id: dimmer
+
+        height: Theme.itemHeightLarge+Theme.itemSpacingLarge
+        width: parent.width-Theme.itemSpacingLarge*2
+        color: "green"
+        radius: height/2
+
+        anchors{
+            bottom: parent.bottom
+            bottomMargin: Theme.itemSpacingLarge
+            left: parent.left
+            leftMargin: Theme.itemSpacingLarge
+        }
+
+        Text {
+            color: "white"
+            text: qsTr("Call")
+            font.pointSize: Theme.fontSizeExtraLarge
+            anchors.centerIn: parent
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                var normalizedNumber = Person.normalizePhoneNumber(dialedNumber.text)
+                telephone.dial(telephone.defaultProviderId, normalizedNumber)
+            }
+        }
+    }
 }
+

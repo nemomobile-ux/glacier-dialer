@@ -16,7 +16,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
 */
-import QtQuick 2.1
+import QtQuick 2.6
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Nemo 1.0
 import QtQuick.Controls.Styles.Nemo 1.0
@@ -28,7 +28,7 @@ Page {
     id: call
     headerTools: HeaderToolsLayout {
         id: tools
-        title: "Call"
+        title: qsTr("Call")
     }
     state: telephone.activeVoiceCall ? telephone.activeVoiceCall.statusText : 'disconnected'
     states: [
@@ -91,14 +91,14 @@ Page {
             spacing: 40
             anchors.horizontalCenter: parent.horizontalCenter
             Button {
-                text: "Answer"
+                text: qsTr("Answer")
                 Layout.fillWidth: true
                 Layout.fillHeight: false
                 onClicked: if (telephone.activeVoiceCall) telephone.activeVoiceCall.answer()
                 visible: call.state == "incoming"
             }
             Button {
-                text: "Hang up"
+                text: qsTr("Hang up")
                 Layout.fillWidth: true
                 Layout.fillHeight: false
                 onClicked: {

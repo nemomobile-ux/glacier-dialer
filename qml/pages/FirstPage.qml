@@ -17,20 +17,22 @@
  * Boston, MA 02110-1301, USA.
 */
 
-import QtQuick 2.1
+import QtQuick 2.6
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Nemo 1.0
 import QtQuick.Controls.Styles.Nemo 1.0
 import QtQuick.Layouts 1.0
+
 import org.nemomobile.voicecall 1.0
-import MeeGo.QOfono 0.2
 import org.nemomobile.contacts 1.0
+
+import MeeGo.QOfono 0.2
 
 Page {
     id: first
     headerTools: HeaderToolsLayout {
         id: tools
-        title: "Glacier Dialer"
+        title: qsTr("Glacier Dialer")
         tools: [
             ToolButton {
                 iconSource: "image://theme/icon-m-toolbar-callhistory-white"
@@ -60,14 +62,14 @@ Page {
         drawerLevels: [
             Button {
                 visible: dialer_page.visible
-                text: "Edit speed dial"
+                text: qsTr("Edit speed dial")
                 onClicked: {
                     main.speedDialEditor = true
                 }
             },
             Button {
                 visible: call_log_page.visible
-                text: "Mark all as read"
+                text: qsTr("Mark all as read")
                 onClicked: {
                     commCallModel.markAllRead()
                 }

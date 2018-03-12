@@ -17,20 +17,20 @@
  * Boston, MA 02110-1301, USA.
 */
 
-import QtQuick 2.1
+import QtQuick 2.6
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Nemo 1.0
 import QtQuick.Controls.Styles.Nemo 1.0
-import QtQuick.Layouts 1.0
+
 import org.nemomobile.contacts 1.0
 
 Rectangle {
     id: btn
-    Layout.fillWidth: true
-    Layout.fillHeight: true
-    Layout.preferredHeight: 140
-    Layout.preferredWidth: 140
+
     color: "transparent"
+
+    radius: height/2
+
     property int index
     property string text: {
         if (index <= 8) {
@@ -39,34 +39,18 @@ Rectangle {
 
         if (index > 8) {
             switch(index) {
-            case 9: return "+";
+            case 9: return "*";
             case 10: return "0";
-            case 11: return "*";
+            case 11: return "#";
             }
         }
-    }
-    property Person person
-    onPersonChanged: {
-        person.avatarPathChanged.connect(avatarPotentiallyChanged)
-        avatarPotentiallyChanged()
-    }
-    function avatarPotentiallyChanged() {
-        if (person == null || person.avatarPath == "image://theme/icon-m-telephony-contact-avatar")
-            contactImage.source = "image://theme/icon-m-telephony-contact-avatar"
-        else
-            contactImage.source = person.avatarPath
-    }
-    Image {
-        id: contactImage
-        anchors.fill: parent
     }
 
     Text {
         id: numberText
-        color: "steelblue"
+        color: Theme.textColor
         font.pointSize: 72
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
+        anchors.centerIn: parent
         font.bold: true
         text: btn.text
         style: Text.Outline
@@ -77,10 +61,13 @@ Rectangle {
         anchors.fill: parent
         onClicked: {
             dialedNumber.insert(dialedNumber.cursorPosition,btn.text)
+            btn.color = Theme.accentColor
         }
         onPressAndHold: {
-            var normalizedNumber = person.phoneDetails[0].normalizedNumber
-            telephone.dial(telephone.defaultProviderId, normalizedNumber)
+
+        }
+        onReleased: {
+            btn.color = Theme.backgroundColor
         }
     }
 }

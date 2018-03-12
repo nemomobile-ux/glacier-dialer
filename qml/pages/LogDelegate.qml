@@ -17,7 +17,7 @@
  * Boston, MA 02110-1301, USA.
 */
 
-import QtQuick 2.1
+import QtQuick 2.6
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Nemo 1.0
 import QtQuick.Controls.Styles.Nemo 1.0
@@ -37,7 +37,7 @@ Item {
             id: directionLabel
             Layout.fillWidth: true
             Layout.fillHeight: true
-            text: model.isMissedCall ? 'missed' : (model.direction == CommCallModel.Inbound ? 'received' : 'initiated')
+            text: model.isMissedCall ? qsTr('missed') : (model.direction == CommCallModel.Inbound ? qsTr('received') : qsTr('initiated'))
         }
         Label {
             id: contactLabel

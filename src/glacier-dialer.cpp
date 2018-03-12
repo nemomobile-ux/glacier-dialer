@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2013 Jolla Ltd.
   Contact: Thomas Perl <thomas.perl@jollamobile.com>
+  Copyright (C) 2018 Chupligin Sergey <neochapay@gmail.com>
   All rights reserved.
 
   You may use this file under the terms of BSD license as follows:
@@ -32,7 +33,6 @@
 #include <QtQuick>
 #endif
 #include <QtGui/QGuiApplication>
-#include "dbusadaptor.h"
 
 #include <QtQml>
 #include <QtQuick/QQuickView>
@@ -41,36 +41,29 @@
 #include <QDBusConnection>
 #include <QCoreApplication>
 
+#include <glacierapp.h>
+
+#include "dbusadaptor.h"
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication app(argc, argv);
-    QScreen* sc = app.primaryScreen();
-    if(sc){
-        sc->setOrientationUpdateMask(Qt::LandscapeOrientation
-                             | Qt::PortraitOrientation
-                             | Qt::InvertedLandscapeOrientation
-                             | Qt::InvertedPortraitOrientation);
-    }
-    QQmlApplicationEngine* engine = new QQmlApplicationEngine(QUrl("/usr/share/glacier-dialer/qml/glacier-dialer.qml"));
-    QObject *topLevel = engine->rootObjects().value(0);
-    QQuickWindow *window = qobject_cast<QQuickWindow *>(topLevel);
-    setenv("QT_QUICK_CONTROLS_STYLE", "Nemo", 1);
-    engine->rootContext()->setContextProperty("__window", window);
-    window->setTitle("Dialer");
+    QGuiApplication *app = GlacierApp::app(argc, argv);
+    app->setOrganizationName("NemoMobile");
+
+    QQuickWindow *window = GlacierApp::showWindow();
+
+    window->setTitle(QObject::tr("Dialer"));
     if ( !window ) {
         qWarning("Error: Your root item has to be a Window.");
         return -1;
     }
-    if (app.arguments().contains("-prestart")) {
+    if (app->arguments().contains("-prestart")) {
         new DBusAdaptor(window);
         QDBusConnection::sessionBus().registerService("org.glacier.voicecall.ui");
         if (!QDBusConnection::sessionBus().registerObject("/", window))
             qWarning() << Q_FUNC_INFO << "Cannot register DBus object!";
-        QObject::connect(engine, SIGNAL(quit()), window, SLOT(close()));
-    } else {
-        window->showFullScreen();
     }
-    return app.exec();
+
+    return app->exec();
 }
 

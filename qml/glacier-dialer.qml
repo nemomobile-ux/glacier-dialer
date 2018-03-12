@@ -17,7 +17,7 @@
  * Boston, MA 02110-1301, USA.
 */
 
-import QtQuick 2.1
+import QtQuick 2.6
 import QtQuick.Window 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Nemo 1.0
@@ -56,6 +56,7 @@ ApplicationWindow
                 __window.setTitle("Dialer")
                 if(!__window.visible)
                 {
+                    console.log("SHOW ME!!!")
                     main.activationReason = "activeVoiceCallChanged"
                     __window.showFullScreen()
                 } else {

@@ -16,7 +16,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
 */
-import QtQuick 2.1
+import QtQuick 2.6
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Nemo 1.0
 import QtQuick.Controls.Styles.Nemo 1.0
@@ -51,19 +51,19 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
             }
             Label {
-                text: "First name"
+                text: qsTr("First name")
             }
             TextField {
                 text: person.firstName
             }
             Label {
-                text: "Last name"
+                text: qsTr("Last name")
             }
             TextField {
                 text: person.lastName
             }
             Label {
-                text: "Phone number"
+                text: qsTr("Phone number")
             }
             TextField {
                 text: person.phoneDetails[0].normalizedNumber

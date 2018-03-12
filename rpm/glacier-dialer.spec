@@ -1,18 +1,22 @@
 Name:       glacier-dialer
 Summary:    Glacier Dialer
-Version:    0.1
+Version:    0.2
 Release:    1
 Group:      Qt/Qt
 License:    LGPL
 URL:        https://github.com/nemomobile-ux/glacier-dialer
 Source0:    %{name}-%{version}.tar.bz2
+
 Requires:   qt5-qtquickcontrols-nemo
 Requires:   voicecall-qt5
 Requires:   nemo-qml-plugin-contacts-qt5
 Requires:   libqofono-qt5-declarative
 Requires:   commhistory-daemon
 Requires:   libcommhistory-qt5-declarative
+Requires:   libglacierapp >= 0.1.2
+
 Conflicts:  voicecall-ui-reference
+
 BuildRequires:  qt5-qtcore-devel
 BuildRequires:  qt5-qtgui-devel
 BuildRequires:  qt5-qtdeclarative-devel
@@ -22,7 +26,7 @@ BuildRequires:  qt5-qmake
 BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  pkgconfig(Qt5DBus)
 BuildRequires:  desktop-file-utils
-
+BuildRequires:  pkgconfig(glacierapp)
 %description
 Glacier dialer application
 

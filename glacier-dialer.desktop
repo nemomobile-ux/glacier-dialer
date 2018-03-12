@@ -6,7 +6,7 @@ Terminal=false
 Name=Glacier Dialer
 X-MeeGo-Logical-Id=voicecall-ap-name
 X-MeeGo-Translation-Catalog=voicecall
-Exec=env QT_QUICK_CONTROLS_STYLE=Nemo /usr/bin/glacier-dialer
+Exec=/usr/bin/glacier-dialer
 Icon=icon-app-dialer
 X-Window-Icon=
 X-HildonDesk-ShowInToolbar=true

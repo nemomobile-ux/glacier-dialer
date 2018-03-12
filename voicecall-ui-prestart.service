@@ -5,7 +5,7 @@ Requires=dbus.socket voicecall-manager.service booster-qtcomponents-qt5.service
 
 [Service]
 Environment="QT_QUICK_CONTROLS_STYLE=Nemo"
-ExecStart=/usr/bin/glacier-dialer -prestart
+ExecStart=/usr/bin/glacier-dialer --prestart
 Restart=always
 
 [Install]
