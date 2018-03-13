@@ -1,5 +1,6 @@
 /*
  * Copyright 2014 Aleksi Suomalainen <suomalainen.aleksi@gmail.com>
+ * Copyright 2018 Chupligin Sergey <neochapay@gmail.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -25,13 +26,14 @@ import QtQuick.Layouts 1.0
 import org.nemomobile.contacts 1.0
 import org.nemomobile.commhistory 1.0
 
+import "../components"
+
 Page {
     id: callLogPage
     headerTools: HeaderToolsLayout {
         id: tools
         title: qsTr("Call log")
         showBackButton: true;
-
 
         tools: [
             ToolButton {

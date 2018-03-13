@@ -11,13 +11,13 @@ HEADERS += src/dbusadaptor.h
 OTHER_FILES += qml/glacier-dialer.qml \
     qml/pages/FirstPage.qml \
     qml/pages/CallLogPage.qml \
-    qml/pages/LogDelegate.qml \
     qml/pages/CallView.qml \
     qml/pages/DialerPage.qml \
     qml/pages/ContactsPage.qml \
     qml/pages/ContactDelegate.qml \
     qml/pages/ContactDetails.qml \
     qml/components/DialerButton.qml \
+    qml/components/LogDelegate.qml \
     rpm/glacier-dialer.spec \
     glacier-dialer.desktop \
     org.glacier.voicecall.ui.service
