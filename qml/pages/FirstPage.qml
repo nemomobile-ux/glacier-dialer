@@ -47,15 +47,6 @@ Page {
                 }
             }
         ]
-        /*drawerLevels: [
-            Button {
-                visible: call_log_page.visible
-                text: qsTr("Mark all as read")
-                onClicked: {
-                    commCallModel.markAllRead()
-                }
-            }
-        ]*/
     }
     DialerPage {
         id: dialer_page

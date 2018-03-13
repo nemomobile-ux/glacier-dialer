@@ -31,6 +31,16 @@ Page {
         id: tools
         title: qsTr("Call log")
         showBackButton: true;
+
+
+        tools: [
+            ToolButton {
+                iconSource: "image://theme/check"
+                onClicked: {
+                    commCallModel.markAllRead()
+                }
+            }
+        ]
     }
 
     ListView {
