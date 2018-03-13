@@ -35,38 +35,19 @@ Page {
         title: qsTr("Glacier Dialer")
         tools: [
             ToolButton {
-                iconSource: "image://theme/icon-m-toolbar-callhistory-white"
+                iconSource: "image://theme/history"
                 onClicked: {
-                    dialer_page.visible = false
-                    call_log_page.visible = true
-                    contacts_page.visible = false
+                    pageStack.push(Qt.resolvedUrl("CallLogPage.qml"));
                 }
             },
             ToolButton {
-                iconSource: "image://theme/icon-m-toolbar-view-menu-white-selected"
+                iconSource: "image://theme/user"
                 onClicked: {
-                    call_log_page.visible = false
-                    dialer_page.visible = true
-                    contacts_page.visible = false
-                }
-            },
-            ToolButton {
-                iconSource: "image://theme/icon-m-telephony-contact-avatar"
-                onClicked: {
-                    call_log_page.visible = false
-                    dialer_page.visible = false
-                    contacts_page.visible = true
+                    pageStack.push(Qt.resolvedUrl("ContactsPage.qml"));
                 }
             }
         ]
-        drawerLevels: [
-            Button {
-                visible: dialer_page.visible
-                text: qsTr("Edit speed dial")
-                onClicked: {
-                    main.speedDialEditor = true
-                }
-            },
+        /*drawerLevels: [
             Button {
                 visible: call_log_page.visible
                 text: qsTr("Mark all as read")
@@ -74,24 +55,10 @@ Page {
                     commCallModel.markAllRead()
                 }
             }
-
-        ]
-    }
-    CallLogPage {
-        id: call_log_page
-        visible: false
+        ]*/
     }
     DialerPage {
         id: dialer_page
-        visible: false
-    }
-    ContactsPage {
-        id: contacts_page
-        visible: false
-    }
-
-    Component.onCompleted: {
-        dialer_page.visible = true
     }
 }
 

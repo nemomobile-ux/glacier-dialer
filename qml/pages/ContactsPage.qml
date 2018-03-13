@@ -30,7 +30,7 @@ Page {
         anchors.fill: parent
         anchors.topMargin: 20
         delegate: ContactDelegate {
-            person: peopleModel.personByRow(index)
+            person: modelData.personByRow(index)
         }
     }
 }

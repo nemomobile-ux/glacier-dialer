@@ -37,8 +37,8 @@ Item {
             avatarPotentiallyChanged()
         }
         function avatarPotentiallyChanged() {
-            if (person == null || person.avatarPath == "image://theme/icon-m-telephony-contact-avatar")
-                contactImage.source = "image://theme/icon-m-telephony-contact-avatar"
+            if (person == null || person.avatarPath == "image://theme/user")
+                contactImage.source = "image://theme/user"
             else
                 contactImage.source = person.avatarPath
         }
@@ -59,7 +59,7 @@ Item {
             onPressAndHold: {
                 var comp = Qt.createComponent("ContactDetails.qml")
                 if (comp.status === Component.Ready) {
-                    first.pageStack.push({
+                    pageStack.push({
                                          "item": comp,
                                          "properties": {
                                              "person": person
