@@ -39,6 +39,7 @@
 #include <QtCore/QString>
 #include <QScreen>
 #include <QDBusConnection>
+#include <QDBusConnectionInterface>
 #include <QCoreApplication>
 
 #include <glacierapp.h>
@@ -57,11 +58,9 @@ int main(int argc, char *argv[])
         qWarning("Error: Your root item has to be a Window.");
         return -1;
     }
-    if (app->arguments().contains("-prestart")) {
+
+    if (app->arguments().contains("--prestart")) {
         new DBusAdaptor(window);
-        QDBusConnection::sessionBus().registerService("org.glacier.voicecall.ui");
-        if (!QDBusConnection::sessionBus().registerObject("/", window))
-            qWarning() << Q_FUNC_INFO << "Cannot register DBus object!";
     }
 
     return app->exec();

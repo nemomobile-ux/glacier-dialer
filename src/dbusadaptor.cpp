@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2013 Jolla Ltd. <robin.burchell@jollamobile.com>
+ * Copyright (C) 2018 Chupligin Sergey <neochapay@gmail.com>
  *
  * You may use this file under the terms of the BSD license as follows:
  *
@@ -31,9 +32,27 @@
 
 #include "dbusadaptor.h"
 
+#include <QDBusConnection>
+#include <QDBusConnectionInterface>
+#include <QDebug>
+#include <QCoreApplication>
+
 DBusAdaptor::DBusAdaptor(QQuickWindow *m)
     : QDBusAbstractAdaptor(m), wm(m)
 {
+    QDBusConnection sessionbus = QDBusConnection::sessionBus();
+
+    if(sessionbus.interface()->isServiceRegistered("org.glacier.voicecall.ui"))
+    {
+        qWarning() << "Second start of glacier dialler";
+        QCoreApplication::quit();
+    }
+
+    QDBusConnection::sessionBus().registerService("org.glacier.voicecall.ui");
+    if (!QDBusConnection::sessionBus().registerObject("/", m))
+    {
+        qWarning() << Q_FUNC_INFO << "Cannot register DBus object!";
+    }
 }
 
 /* libcontentaction requires this signature for methods invoked from

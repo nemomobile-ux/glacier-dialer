@@ -53,10 +53,8 @@ ApplicationWindow
                                             },
                                             "immediate": true
                                         })
-                __window.setTitle("Dialer")
                 if(!__window.visible)
                 {
-                    console.log("SHOW ME!!!")
                     main.activationReason = "activeVoiceCallChanged"
                     __window.showFullScreen()
                 } else {
