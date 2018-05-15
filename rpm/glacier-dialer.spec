@@ -34,34 +34,25 @@ Glacier dialer application
 %prep
 %setup -q -n %{name}-%{version}
 
-# >> setup
-# << setup
-
 %build
-# >> build pre
-# << build pre
 
 %qmake5
 
 make %{?_smp_mflags}
 
-# >> build post
-# << build post
-
 %install
 rm -rf %{buildroot}
-# >> install pre
-# << install pre
 %qmake5_install
 
-# >> install post
 mkdir -p %{buildroot}%{_libdir}/systemd/user/user-session.target.wants
 ln -s ../voicecall-ui-prestart.service %{buildroot}%{_libdir}/systemd/user/user-session.target.wants/
-# << install post
 
 desktop-file-install --delete-original       \
   --dir %{buildroot}%{_datadir}/applications             \
    %{buildroot}%{_datadir}/applications/*.desktop
+
+%post
+systemctl-user --no-block restart voicecall-ui-prestart.service
 
 %files
 %defattr(-,root,root,-)
@@ -71,5 +62,3 @@ desktop-file-install --delete-original       \
 %{_datadir}/dbus-1/services/org.glacier.voicecall.ui.service
 %{_libdir}/systemd/user/voicecall-ui-prestart.service
 %{_libdir}/systemd/user/user-session.target.wants/voicecall-ui-prestart.service
-# >> files
-# << files
