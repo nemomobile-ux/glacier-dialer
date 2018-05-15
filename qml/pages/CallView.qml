@@ -1,6 +1,6 @@
 /*
  * Copyright 2014 Aleksi Suomalainen <suomalainen.aleksi@gmail.com>
- *
+ * Copyright 2018 Chupligin Sergey <neochapay@gmail.com>
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
  * License as published by the Free Software Foundation; either
@@ -48,7 +48,7 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             source: main.activeVoiceCallPerson
                     ? main.activeVoiceCallPerson.avatarPath
-                    : 'image://theme/icon-m-telephony-contact-avatar';
+                    : 'image://theme/user';
             Layout.fillWidth: false
             Layout.fillHeight: false
             Layout.preferredHeight: 280
@@ -59,10 +59,10 @@ Page {
             width:parent.width; height:paintedHeight
             horizontalAlignment: Text.Center
             anchors.horizontalCenter: parent.horizontalCenter
-            font.pointSize: 56
-            color: "white"
+            font.pointSize: Theme.fontWeightLarge
+            color: Theme.textColor
 
-            text:main.activeVoiceCallPerson
+            text: main.activeVoiceCallPerson
                  ? main.activeVoiceCallPerson.displayLabel
                  : (telephone.activeVoiceCall ? telephone.activeVoiceCall.lineId : '');
 
@@ -82,13 +82,13 @@ Page {
         Text {
             id:tVoiceCallDuration
             anchors.horizontalCenter: parent.horizontalCenter
-            font.pointSize: 56
+            font.pointSize: Theme.fontWeightLarge
             color: "white"
             visible: call.state == "active"
             text: telephone.activeVoiceCall ? main.secondsToTimeString(telephone.activeVoiceCall.duration) : '00:00:00'
         }
         RowLayout {
-            spacing: 40
+            spacing: Theme.itemSpacingHuge
             anchors.horizontalCenter: parent.horizontalCenter
             Button {
                 text: qsTr("Answer")
