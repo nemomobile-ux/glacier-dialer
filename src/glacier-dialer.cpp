@@ -46,7 +46,7 @@
 
 #include "dbusadaptor.h"
 
-int main(int argc, char *argv[])
+Q_DECL_EXPORT int main(int argc, char *argv[])
 {
     QGuiApplication *app = GlacierApp::app(argc, argv);
     app->setOrganizationName("NemoMobile");

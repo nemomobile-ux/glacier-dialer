@@ -14,6 +14,7 @@ Requires:   libqofono-qt5-declarative
 Requires:   commhistory-daemon
 Requires:   libcommhistory-qt5-declarative
 Requires:   libglacierapp >= 0.1.2
+Requires:   mapplauncherd-booster-nemomobile
 
 Conflicts:  voicecall-ui-reference
 
