@@ -17,7 +17,6 @@ OTHER_FILES += qml/glacier-dialer.qml \
     qml/pages/ContactDelegate.qml \
     qml/pages/ContactDetails.qml \
     qml/components/DialerButton.qml \
-    qml/components/LogDelegate.qml \
     rpm/glacier-dialer.spec \
     glacier-dialer.desktop \
     org.glacier.voicecall.ui.service
@@ -43,3 +42,6 @@ INSTALLS += target desktop qml pages systemd_dbus_service systemd_ui_prestart_se
 
 CONFIG += link_pkgconfig
 PKGCONFIG += glacierapp
+
+DISTFILES += \
+    qml/components/SearchBox.qml
