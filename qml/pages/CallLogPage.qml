@@ -41,18 +41,70 @@ Page {
                 onClicked: {
                     commCallModel.markAllRead()
                 }
+                visible: historyList.count != 0
             }
         ]
     }
 
     ListView {
-        id: list
+        id: historyList
         anchors.fill: parent
         anchors.topMargin: 20
         clip: true
         model: commCallModel
-        delegate: LogDelegate {
+        delegate: ListViewItemWithActions {
+            property Person contact
+
+            showNext: false
+
             contact: model.contactIds.length ? peopleModel.personById(model.contactIds[0]) : null
+            label: contact ? contact.displayLabel : model.remoteUid
+            description: refreshTimestamp(model.startTime)
+            icon: "image://theme/phone"
+
+            onClicked: {
+                telephone.dial(telephone.defaultProviderId, model.remoteUid)
+            }
         }
+    }
+
+    Label{
+        id: emptyHistory
+        text: qsTr("Call journal empty")
+        anchors.centerIn: parent
+        visible: historyList.count == 0
+    }
+
+    function refreshTimestamp(time) {
+        var timeAgo;
+
+        var seconds = Math.floor((new Date() - time) / 1000)
+        var years = Math.floor(seconds / (365*24*60*60))
+        var months = Math.floor(seconds / (30*24*60*60))
+        var days = Math.floor(seconds / (24*60*60))
+        var hours = Math.floor(seconds / (60*60))
+        var minutes = Math.floor(seconds / 60)
+
+        if (months >= 1) {
+            timeAgo =  qsTr("long time ago")
+        }else if (days >= 1) {
+            if (days > 1) {
+                timeAgo =  days + " " + qsTr("days ago")
+            } else {
+                timeAgo =  days + " " + qsTr("day ago")
+            }
+        }else if (hours >= 1) {
+            if (hours > 1) {
+                timeAgo =  hours + " " + qsTr("hours ago")
+            } else {
+                timeAgo =  hours + " " + qsTr("hour ago")
+            }
+        } else if (minutes >= 1) {
+            timeAgo =  minutes + " " + qsTr("min ago")
+
+        } else {
+            timeAgo = qsTr("Just now")
+        }
+        return timeAgo;
     }
 }

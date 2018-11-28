@@ -53,13 +53,11 @@ Rectangle {
         anchors.centerIn: parent
         font.bold: true
         text: btn.text
-        style: Text.Outline
-        styleColor : "black"
     }
 
     MouseArea {
         anchors.fill: parent
-        onClicked: {
+        onPressed: {
             dialedNumber.insert(dialedNumber.cursorPosition,btn.text)
             btn.color = Theme.accentColor
         }

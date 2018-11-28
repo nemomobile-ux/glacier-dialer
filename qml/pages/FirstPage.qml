@@ -48,6 +48,7 @@ Page {
             }
         ]
     }
+
     DialerPage {
         id: dialer_page
     }

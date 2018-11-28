@@ -27,6 +27,7 @@ import org.nemomobile.contacts 1.0
 import org.nemomobile.commhistory 1.0
 
 import "pages"
+import "components"
 
 ApplicationWindow
 {
@@ -34,17 +35,19 @@ ApplicationWindow
     initialPage: FirstPage {
         id: pageItem
     }
+
     contentOrientation: Screen.orientation
     property Person activeVoiceCallPerson
     property string activationReason: 'invoked'
     property bool speedDialEditor: false
     property alias page: pageItem
+
     VoiceCallManager {
         id: telephone
         onActiveVoiceCallChanged: {
             if(activeVoiceCall) {
                 main.activeVoiceCallPerson = peopleModel.personByPhoneNumber(activeVoiceCall.lineId, true);
-                console.error(JSON.stringify(main.activeVoiceCallPerson))
+
                 pageItem.pageStack.push({
                                             "item": Qt.resolvedUrl("pages/CallView.qml"),
                                             "properties": {
@@ -53,23 +56,21 @@ ApplicationWindow
                                             },
                                             "immediate": true
                                         })
-                if(!__window.visible)
+                if(!main.visible)
                 {
                     main.activationReason = "activeVoiceCallChanged"
-                    __window.showFullScreen()
+                    main.showFullScreen()
                 } else {
-                    __window.raise()
+                    main.raise()
                 }
             } else {
-                pageItem.pageStack.pop({"immediate":true})
+                pageItem.pageStack.pop()
                 main.activeVoiceCallPerson = null
-                if (main.activationReason != "invoked") {
-                    main.activationReason = "invoked"
-                    __window.close()
-                }
+                main.hide();
             }
         }
     }
+
     function secondsToTimeString(seconds) {
         var h = Math.floor(seconds / 3600);
         var m = Math.floor((seconds - (h * 3600)) / 60);
@@ -87,6 +88,15 @@ ApplicationWindow
         id: commCallModel
         groupBy: CommCallModel.GroupByContact
         resolveContacts: true
+    }
+
+    VoicecallService{
+        id: voicecallService
+
+        onOpenCallHistory: {
+            pageStack.push(Qt.resolvedUrl("pages/CallLogPage.qml"))
+            main.raise()
+        }
     }
 }
 

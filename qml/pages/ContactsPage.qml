@@ -23,14 +23,51 @@ import QtQuick.Controls.Nemo 1.0
 import QtQuick.Controls.Styles.Nemo 1.0
 import QtQuick.Layouts 1.0
 
+import org.nemomobile.contacts 1.0
+import org.nemomobile.qmlcontacts 1.0
+
+import "../components"
+
 Page {
     id: contacts
-    ListView {
-        model: peopleModel
-        anchors.fill: parent
-        anchors.topMargin: 20
-        delegate: ContactDelegate {
-            person: modelData.personByRow(index)
+
+    signal selectContact(string number)
+
+    headerTools: HeaderToolsLayout {
+        id: tools
+        title: qsTr("Contacts")
+        showBackButton: true;
+    }
+
+    PeopleModel {
+        id: contactsModel
+    }
+
+    SearchBox {
+        id: searchbox
+        placeHolderText: qsTr("Search")
+        anchors.top: parent.top
+        width: parent.width
+        onSearchTextChanged: {
+            app.contactListModel.search(searchbox.searchText);
+        }
+    }
+
+    ContactListWidget {
+        id: contactsList
+
+        anchors.top: searchbox.bottom
+        width: parent.width
+        anchors.bottom: parent.bottom
+        clip: true
+
+        model: contactsModel
+        delegate: ContactListDelegate {
+             showNext: false
+             onClicked: {
+                 console.log(model.person.phoneDetails[0].number)
+                 selectContact(model.person.phoneDetails[0].number)
+             }
         }
     }
 }

@@ -9,17 +9,20 @@ LIBS += -lglacierapp
 HEADERS += src/dbusadaptor.h
 
 OTHER_FILES += qml/glacier-dialer.qml \
-    qml/pages/FirstPage.qml \
     qml/pages/CallLogPage.qml \
     qml/pages/CallView.qml \
-    qml/pages/DialerPage.qml \
     qml/pages/ContactsPage.qml \
     qml/pages/ContactDelegate.qml \
     qml/pages/ContactDetails.qml \
+    qml/pages/DialerPage.qml \
+    qml/pages/FirstPage.qml \
+    qml/components/SearchBox.qml \
     qml/components/DialerButton.qml \
+    qml/components/VoicecallService.qml \
     rpm/glacier-dialer.spec \
     glacier-dialer.desktop \
-    org.glacier.voicecall.ui.service
+    org.glacier.voicecall.ui.service \
+    com.nokia.telephony.callhistory.service
 
 target.path = /usr/bin
 
@@ -33,7 +36,8 @@ pages.files = qml
 pages.path = /usr/share/glacier-dialer/
 
 systemd_dbus_service.path = $${INSTALL_ROOT}/usr/share/dbus-1/services
-systemd_dbus_service.files = org.glacier.voicecall.ui.service
+systemd_dbus_service.files = org.glacier.voicecall.ui.service \
+                             com.nokia.telephony.callhistory.service
 
 systemd_ui_prestart_service.path = $${INSTALL_ROOT}/usr/lib/systemd/user
 systemd_ui_prestart_service.files = voicecall-ui-prestart.service
@@ -42,6 +46,3 @@ INSTALLS += target desktop qml pages systemd_dbus_service systemd_ui_prestart_se
 
 CONFIG += link_pkgconfig
 PKGCONFIG += glacierapp
-
-DISTFILES += \
-    qml/components/SearchBox.qml

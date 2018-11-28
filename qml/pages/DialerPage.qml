@@ -28,6 +28,8 @@ import "../components"
 Page {
     id: dialer
 
+    property alias dialerNumber: dialedNumber.text
+
     Item {
         id: numForDialing
         height: Theme.itemHeightLarge
