@@ -49,7 +49,7 @@ Rectangle {
     Text {
         id: numberText
         color: Theme.textColor
-        font.pointSize: 72
+        font.pixelSize: btn.height*0.8
         anchors.centerIn: parent
         font.bold: true
         text: btn.text

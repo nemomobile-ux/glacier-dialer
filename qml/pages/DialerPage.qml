@@ -39,7 +39,7 @@ Page {
             id: dialedNumber
             width: dialer.width-dialedNumber.height
             height: Theme.itemHeightLarge
-            font.pointSize: Theme.fontSizeExtraLarge
+            font.pixelSize: numForDialing.height*0.85
             color: "steelblue"
             horizontalAlignment: TextEdit.AlignRight
         }
@@ -101,7 +101,7 @@ Page {
         Text {
             color: "white"
             text: qsTr("Call")
-            font.pointSize: Theme.fontSizeExtraLarge
+            font.pixelSize: dimmer.height*0.8
             anchors.centerIn: parent
         }
         MouseArea {
