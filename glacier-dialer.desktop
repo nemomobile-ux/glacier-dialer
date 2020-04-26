@@ -3,7 +3,7 @@ Encoding=UTF-8
 Version=1.0
 Type=Application
 Terminal=false
-Name=Glacier Dialer
+Name=Dialer
 X-MeeGo-Logical-Id=voicecall-ap-name
 X-MeeGo-Translation-Catalog=voicecall
 Exec=invoker --type=nemomobile -s /usr/bin/glacier-dialer
