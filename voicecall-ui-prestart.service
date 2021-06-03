@@ -1,7 +1,7 @@
 [Unit]
 Description=Voicecall ui prestart
 After=pre-user-session.target
-Requires=dbus.socket voicecall-manager.service booster-qtcomponents-qt5.service
+Requires=dbus.socket voicecall-manager.service booster-nemomobile.service
 
 [Service]
 Environment="QT_QUICK_CONTROLS_STYLE=Nemo"
