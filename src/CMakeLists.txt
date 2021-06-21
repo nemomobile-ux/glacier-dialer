@@ -3,6 +3,7 @@ set(SRC glacier-dialer.cpp
 )
 
 add_executable(glacier-dialer ${SRC})
+set_property(TARGET glacier-dialer PROPERTY POSITION_INDEPENDENT_CODE TRUE)
 
 target_link_libraries(glacier-dialer
 	Qt5::Gui
