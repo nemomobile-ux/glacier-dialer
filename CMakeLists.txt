@@ -20,6 +20,10 @@ find_package(Glacier COMPONENTS App REQUIRED)
 add_subdirectory(src)
 
 # Translations
+qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR}
+    translations/glacier-dialer_en.ts
+    translations/glacier-dialer_ru.ts)
+
 file(GLOB TS_FILES translations/*.ts)
 qt5_add_translation(QM_FILES ${TS_FILES})
 add_custom_target(translations DEPENDS ${QM_FILES})
