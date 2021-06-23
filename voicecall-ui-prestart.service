@@ -1,10 +1,10 @@
 [Unit]
 Description=Voicecall ui prestart
-After=pre-user-session.target
+After=lipstick.service
 Requires=dbus.socket voicecall-manager.service booster-nemomobile.service
 
 [Service]
-Environment="QT_QUICK_CONTROLS_STYLE=Nemo"
+Environment="QT_QPA_PLATFORM=wayland"
 ExecStart=/usr/bin/glacier-dialer --prestart
 Restart=always
 

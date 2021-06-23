@@ -1,3 +1,4 @@
 [D-BUS Service]
+Environment="QT_QPA_PLATFORM=wayland"
 Name=com.nokia.telephony.callhistory
 Exec=/usr/bin/invoker --type=nemomobile -s /usr/bin/glacier-dialer
