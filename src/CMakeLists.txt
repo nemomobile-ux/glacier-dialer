@@ -3,7 +3,7 @@ set(SRC glacier-dialer.cpp
 )
 
 add_executable(glacier-dialer ${SRC})
-set_property(TARGET glacier-dialer PROPERTY POSITION_INDEPENDENT_CODE TRUE)
+set_property(TARGET glacier-dialer PROPERTY POSITION_INDEPENDENT_CODE FALSE)
 
 target_link_libraries(glacier-dialer
 	Qt5::Gui
@@ -11,6 +11,7 @@ target_link_libraries(glacier-dialer
 	Qt5::Quick
 	Qt5::DBus
 	Glacier::App)
+
 
 install(TARGETS glacier-dialer RUNTIME
 	DESTINATION ${CMAKE_INSTALL_BINDIR})
