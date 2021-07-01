@@ -9,4 +9,4 @@ ExecStart=/usr/bin/glacier-dialer --prestart
 Restart=always
 
 [Install]
-WantedBy=user-session.target
+WantedBy=graphical-session.target
