@@ -1,7 +1,7 @@
 [Unit]
 Description=Voicecall ui prestart
 After=lipstick.service
-Requires=dbus.socket voicecall-manager.service booster-nemomobile.service
+Requires=dbus.socket voicecall-manager.service
 
 [Service]
 Environment="QT_QPA_PLATFORM=wayland"
