@@ -1,6 +1,6 @@
 /*
  * Copyright 2014 Aleksi Suomalainen <suomalainen.aleksi@gmail.com>
- * Copyright 2018 Chupligin Sergey <neochapay@gmail.com>
+ * Copyright 2018-2021 Chupligin Sergey <neochapay@gmail.com>
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
  * License as published by the Free Software Foundation; either
@@ -20,7 +20,7 @@ import QtQuick 2.6
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Nemo 1.0
 import QtQuick.Controls.Styles.Nemo 1.0
-import QtQuick.Layouts 1.0
+
 import org.nemomobile.contacts 1.0
 import org.nemomobile.commhistory 1.0
 
@@ -28,8 +28,9 @@ Page {
     id: call
     headerTools: HeaderToolsLayout {
         id: tools
-        title: qsTr("Call")
+        title: call.state == "incoming" ? qsTr("Incoming call") : qsTr("Call")
     }
+
     state: telephone.activeVoiceCall ? telephone.activeVoiceCall.statusText : 'disconnected'
     states: [
         State {name:'active'},
@@ -40,73 +41,88 @@ Page {
         State {name:'waiting'},
         State {name:'disconnected'}
     ]
-    ColumnLayout {
-        anchors.fill: parent
+
+    Column {
+        width: parent.width
+        height: parent.heigh - buttonRow.height
+
         spacing: 30
+
+        Text {
+            id:tLineId
+            width: parent.width;
+            height: Theme.itemHeightLarge
+
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+
+            font.pointSize: Theme.fontSizeLarge
+            color: Theme.textColor
+
+            text: main.activeVoiceCallPerson
+                  ? main.activeVoiceCallPerson.displayLabel
+                  : (telephone.activeVoiceCall ? telephone.activeVoiceCall.lineId : '');
+        }
+
+
         Image {
             id: avatar
             anchors.horizontalCenter: parent.horizontalCenter
             source: main.activeVoiceCallPerson
                     ? main.activeVoiceCallPerson.avatarPath
                     : 'image://theme/user';
-            Layout.fillWidth: false
-            Layout.fillHeight: false
-            Layout.preferredHeight: 280
-            Layout.preferredWidth: 280
         }
-        Text {
-            id:tLineId
-            width:parent.width; height:paintedHeight
-            horizontalAlignment: Text.Center
-            anchors.horizontalCenter: parent.horizontalCenter
-            font.pointSize: Theme.fontWeightLarge
-            color: Theme.textColor
 
-            text: main.activeVoiceCallPerson
-                 ? main.activeVoiceCallPerson.displayLabel
-                 : (telephone.activeVoiceCall ? telephone.activeVoiceCall.lineId : '');
 
-            onTextChanged: resizeText();
-
-            Component.onCompleted: resizeText();
-
-            function resizeText() {
-                if(paintedWidth < 0 || paintedHeight < 0) return;
-                while(paintedWidth > width)
-                    if(--font.pixelSize <= 0) break;
-
-                while(paintedWidth < width)
-                    if(++font.pixelSize >= 38) break;
-            }
-        }
         Text {
             id:tVoiceCallDuration
             anchors.horizontalCenter: parent.horizontalCenter
-            font.pointSize: Theme.fontWeightLarge
-            color: "white"
+            font.pointSize: Theme.fontSizeMedium
+            color: Theme.textColor
             visible: call.state == "active"
             text: telephone.activeVoiceCall ? main.secondsToTimeString(telephone.activeVoiceCall.duration) : '00:00:00'
         }
-        RowLayout {
-            spacing: Theme.itemSpacingHuge
-            anchors.horizontalCenter: parent.horizontalCenter
-            Button {
-                text: qsTr("Answer")
-                Layout.fillWidth: true
-                Layout.fillHeight: false
-                onClicked: if (telephone.activeVoiceCall) telephone.activeVoiceCall.answer()
-                visible: call.state == "incoming"
+    }
+
+    Item {
+        id: buttonRow
+        width: parent.width
+        height: Theme.itemHeightHuge
+
+        anchors{
+            bottom: parent.bottom
+        }
+
+        Button {
+            id: answerButton
+            width: visible ? buttonRow.width/2-Theme.itemSpacingHuge*2 : 0
+            text: qsTr("Answer")
+            onClicked: if (telephone.activeVoiceCall) telephone.activeVoiceCall.answer()
+            visible: call.state == "incoming"
+
+            anchors{
+                right: parent.horizontalCenter
+                rightMargin: Theme.itemSpacingHuge
             }
-            Button {
-                text: qsTr("Hang up")
-                Layout.fillWidth: true
-                Layout.fillHeight: false
-                onClicked: {
-                    if(telephone.activeVoiceCall) {
-                        telephone.activeVoiceCall.hangup();
-                    }
+        }
+
+        Button {
+            id: hangUpButton
+            width: answerButton.visible ? buttonRow.width/2-Theme.itemSpacingHuge*2 : buttonRow.width-Theme.itemSpacingHuge*2
+            text: qsTr("Hang up")
+
+            anchors{
+                left: answerButton.visible ? parent.horizontalCenter : undefined
+                leftMargin: answerButton.visible ? Theme.itemSpacingHuge : undefined
+                horizontalCenter: answerButton.visible ? undefined : parent.horizontalCenter
+            }
+
+            onClicked: {
+                if(telephone.activeVoiceCall) {
+                    telephone.activeVoiceCall.hangup();
                 }
             }
         }
     }
 }
+
