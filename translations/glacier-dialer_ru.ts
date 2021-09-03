@@ -135,7 +135,7 @@
     <name>FirstPage</name>
     <message>
         <location filename="../src/qml/pages/FirstPage.qml" line="35"/>
-        <source>Glacier Dialer</source>
+        <source>Dialer</source>
         <translation>Телефон</translation>
     </message>
 </context>

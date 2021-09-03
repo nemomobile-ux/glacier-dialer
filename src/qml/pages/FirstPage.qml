@@ -32,7 +32,7 @@ Page {
     id: first
     headerTools: HeaderToolsLayout {
         id: tools
-        title: qsTr("Glacier Dialer")
+        title: qsTr("Dialer")
         tools: [
             ToolButton {
                 iconSource: "image://theme/history"
