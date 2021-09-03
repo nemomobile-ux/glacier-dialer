@@ -85,23 +85,16 @@ Page {
         var hours = Math.floor(seconds / (60*60))
         var minutes = Math.floor(seconds / 60)
 
-        if (months >= 1) {
-            timeAgo =  qsTr("long time ago")
+        if (years >= 1) {
+            timeAgo = qsTr("%n year(s) ago", "refreshTimestamp", years)
+        }else if (months >= 1) {
+            timeAgo = qsTr("%n months(s) ago", "refreshTimestamp", months)
         }else if (days >= 1) {
-            if (days > 1) {
-                timeAgo =  days + " " + qsTr("days ago")
-            } else {
-                timeAgo =  days + " " + qsTr("day ago")
-            }
+            timeAgo = qsTr("%n day(s) ago", "refreshTimestamp", days)
         }else if (hours >= 1) {
-            if (hours > 1) {
-                timeAgo =  hours + " " + qsTr("hours ago")
-            } else {
-                timeAgo =  hours + " " + qsTr("hour ago")
-            }
+            timeAgo = qsTr("%n hours(s) ago", "refreshTimestamp", hours)
         } else if (minutes >= 1) {
-            timeAgo =  minutes + " " + qsTr("min ago")
-
+            timeAgo = qsTr("%n minutes(s) ago", "refreshTimestamp", minutes)
         } else {
             timeAgo = qsTr("Just now")
         }
