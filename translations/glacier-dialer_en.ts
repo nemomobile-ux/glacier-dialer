@@ -130,7 +130,7 @@
     <name>FirstPage</name>
     <message>
         <location filename="../src/qml/pages/FirstPage.qml" line="35"/>
-        <source>Glacier Dialer</source>
+        <source>Dialer</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
