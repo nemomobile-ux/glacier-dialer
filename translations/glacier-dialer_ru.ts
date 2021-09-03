@@ -1,75 +1,73 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ru_RU">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.1">
 <context>
     <name>CallLogPage</name>
     <message>
         <location filename="../src/qml/pages/CallLogPage.qml" line="35"/>
         <source>Call log</source>
-        <translation type="unfinished"></translation>
+        <translation>Список звонков</translation>
     </message>
     <message>
         <location filename="../src/qml/pages/CallLogPage.qml" line="73"/>
         <source>Call journal empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Журнал звонков пуст</translation>
     </message>
     <message>
         <location filename="../src/qml/pages/CallLogPage.qml" line="89"/>
         <source>long time ago</source>
-        <translation type="unfinished"></translation>
+        <translation>очень давно</translation>
     </message>
     <message>
         <location filename="../src/qml/pages/CallLogPage.qml" line="92"/>
         <source>days ago</source>
-        <translation type="unfinished"></translation>
+        <translation>дней назад</translation>
     </message>
     <message>
         <location filename="../src/qml/pages/CallLogPage.qml" line="94"/>
         <source>day ago</source>
-        <translation type="unfinished"></translation>
+        <translation>день назад</translation>
     </message>
     <message>
         <location filename="../src/qml/pages/CallLogPage.qml" line="98"/>
         <source>hours ago</source>
-        <translation type="unfinished"></translation>
+        <translation>часов назал</translation>
     </message>
     <message>
         <location filename="../src/qml/pages/CallLogPage.qml" line="100"/>
         <source>hour ago</source>
-        <translation type="unfinished"></translation>
+        <translation>час назад</translation>
     </message>
     <message>
         <location filename="../src/qml/pages/CallLogPage.qml" line="103"/>
         <source>min ago</source>
-        <translation type="unfinished"></translation>
+        <translation>мин назад</translation>
     </message>
     <message>
         <location filename="../src/qml/pages/CallLogPage.qml" line="106"/>
         <source>Just now</source>
-        <translation type="unfinished"></translation>
+        <translation>Только что</translation>
     </message>
 </context>
 <context>
     <name>CallView</name>
     <message>
         <location filename="../src/qml/pages/CallView.qml" line="31"/>
-        <source>Call</source>
-        <translation type="unfinished"></translation>
+        <source>Incoming call</source>
+        <translation>Входящий звонок</translation>
     </message>
     <message>
         <location filename="../src/qml/pages/CallView.qml" line="31"/>
-        <source>Incoming call</source>
-        <translation type="unfinished"></translation>
+        <source>Call</source>
+        <translation>Звонок</translation>
     </message>
     <message>
         <location filename="../src/qml/pages/CallView.qml" line="99"/>
         <source>Answer</source>
-        <translation type="unfinished"></translation>
+        <translation>Ответить</translation>
     </message>
     <message>
         <location filename="../src/qml/pages/CallView.qml" line="112"/>
         <source>Hang up</source>
-        <translation type="unfinished"></translation>
+        <translation>Повесить трубку</translation>
     </message>
 </context>
 <context>
@@ -77,17 +75,17 @@
     <message>
         <location filename="../src/qml/pages/ContactDetails.qml" line="54"/>
         <source>First name</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя</translation>
     </message>
     <message>
         <location filename="../src/qml/pages/ContactDetails.qml" line="60"/>
         <source>Last name</source>
-        <translation type="unfinished"></translation>
+        <translation>Фамилия</translation>
     </message>
     <message>
         <location filename="../src/qml/pages/ContactDetails.qml" line="66"/>
         <source>Phone number</source>
-        <translation type="unfinished"></translation>
+        <translation>Номер телефона</translation>
     </message>
 </context>
 <context>
@@ -95,12 +93,12 @@
     <message>
         <location filename="../src/qml/pages/ContactsPage.qml" line="38"/>
         <source>Contacts</source>
-        <translation type="unfinished"></translation>
+        <translation>Контакты</translation>
     </message>
     <message>
         <location filename="../src/qml/pages/ContactsPage.qml" line="48"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Поиск</translation>
     </message>
 </context>
 <context>
@@ -108,7 +106,7 @@
     <message>
         <location filename="../src/qml/pages/DialerPage.qml" line="103"/>
         <source>Call</source>
-        <translation type="unfinished"></translation>
+        <translation>Звонок</translation>
     </message>
 </context>
 <context>
@@ -116,7 +114,7 @@
     <message>
         <location filename="../src/qml/pages/FirstPage.qml" line="35"/>
         <source>Glacier Dialer</source>
-        <translation type="unfinished"></translation>
+        <translation>Телефон</translation>
     </message>
 </context>
 <context>
@@ -124,7 +122,7 @@
     <message>
         <location filename="../src/glacier-dialer.cpp" line="56"/>
         <source>Dialer</source>
-        <translation type="unfinished"></translation>
+        <translation>Телефон</translation>
     </message>
 </context>
 </TS>
