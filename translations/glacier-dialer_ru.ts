@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ru">
 <context>
     <name>CallLogPage</name>
     <message>
@@ -11,38 +13,58 @@
         <source>Call journal empty</source>
         <translation>Журнал звонков пуст</translation>
     </message>
-    <message>
+    <message numerus="yes">
         <location filename="../src/qml/pages/CallLogPage.qml" line="89"/>
-        <source>long time ago</source>
-        <translation>очень давно</translation>
+        <source>%n year(s) ago</source>
+        <comment>refreshTimestamp</comment>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/qml/pages/CallLogPage.qml" line="91"/>
+        <source>%n months(s) ago</source>
+        <comment>refreshTimestamp</comment>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/qml/pages/CallLogPage.qml" line="93"/>
+        <source>%n day(s) ago</source>
+        <comment>refreshTimestamp</comment>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/qml/pages/CallLogPage.qml" line="95"/>
+        <source>%n hours(s) ago</source>
+        <comment>refreshTimestamp</comment>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/qml/pages/CallLogPage.qml" line="97"/>
+        <source>%n minutes(s) ago</source>
+        <comment>refreshTimestamp</comment>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="92"/>
-        <source>days ago</source>
-        <translation>дней назад</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="94"/>
-        <source>day ago</source>
-        <translation>день назад</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="98"/>
-        <source>hours ago</source>
-        <translation>часов назал</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="100"/>
-        <source>hour ago</source>
-        <translation>час назад</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="103"/>
-        <source>min ago</source>
-        <translation>мин назад</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="106"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="99"/>
         <source>Just now</source>
         <translation>Только что</translation>
     </message>
