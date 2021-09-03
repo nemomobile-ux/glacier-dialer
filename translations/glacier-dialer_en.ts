@@ -57,12 +57,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/CallView.qml" line="94"/>
+        <location filename="../src/qml/pages/CallView.qml" line="31"/>
+        <source>Incoming call</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qml/pages/CallView.qml" line="99"/>
         <source>Answer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/CallView.qml" line="101"/>
+        <location filename="../src/qml/pages/CallView.qml" line="112"/>
         <source>Hang up</source>
         <translation type="unfinished"></translation>
     </message>
