@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ru_RU">
+<TS version="2.1">
 <context>
     <name>CallLogPage</name>
     <message>
@@ -53,12 +53,12 @@
     <name>CallView</name>
     <message>
         <location filename="../src/qml/pages/CallView.qml" line="31"/>
-        <source>Call</source>
+        <source>Incoming call</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/qml/pages/CallView.qml" line="31"/>
-        <source>Incoming call</source>
+        <source>Call</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
