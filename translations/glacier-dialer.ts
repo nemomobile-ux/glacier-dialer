@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1">
+<TS version="2.1" language="en_US">
 <context>
     <name>CallLogPage</name>
     <message>
@@ -19,6 +19,7 @@
         <comment>refreshTimestamp</comment>
         <translation type="unfinished">
             <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -26,6 +27,7 @@
         <source>%n months(s) ago</source>
         <comment>refreshTimestamp</comment>
         <translation type="unfinished">
+            <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
@@ -35,6 +37,7 @@
         <comment>refreshTimestamp</comment>
         <translation type="unfinished">
             <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -43,6 +46,7 @@
         <comment>refreshTimestamp</comment>
         <translation type="unfinished">
             <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -50,6 +54,7 @@
         <source>%n minutes(s) ago</source>
         <comment>refreshTimestamp</comment>
         <translation type="unfinished">
+            <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
@@ -63,12 +68,12 @@
     <name>CallView</name>
     <message>
         <location filename="../src/qml/pages/CallView.qml" line="31"/>
-        <source>Incoming call</source>
+        <source>Call</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/qml/pages/CallView.qml" line="31"/>
-        <source>Call</source>
+        <source>Incoming call</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
