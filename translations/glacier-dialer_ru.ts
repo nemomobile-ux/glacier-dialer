@@ -11,38 +11,38 @@
         <source>Call journal empty</source>
         <translation>Журнал звонков пуст</translation>
     </message>
-    <message>
+    <message numerus="yes">
         <location filename="../src/qml/pages/CallLogPage.qml" line="89"/>
-        <source>long time ago</source>
-        <translation>очень давно</translation>
+        <source>%n year(s) ago</source>
+        <comment>refreshTimestamp</comment>
+        <translation><numerusform>%n год назад</numerusform><numerusform>%n лет назад</numerusform><numerusform>%n лет назад</numerusform><numerusform>%n лет назад</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/qml/pages/CallLogPage.qml" line="91"/>
+        <source>%n months(s) ago</source>
+        <comment>refreshTimestamp</comment>
+        <translation><numerusform>%n месяц назад</numerusform><numerusform>%n месяцев назад</numerusform><numerusform>%n месяцев назад</numerusform><numerusform>%n месяцев назад</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/qml/pages/CallLogPage.qml" line="93"/>
+        <source>%n day(s) ago</source>
+        <comment>refreshTimestamp</comment>
+        <translation><numerusform>%n день назад</numerusform><numerusform>%n дней назад</numerusform><numerusform>%n дней назад</numerusform><numerusform>%n дней назад</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/qml/pages/CallLogPage.qml" line="95"/>
+        <source>%n hours(s) ago</source>
+        <comment>refreshTimestamp</comment>
+        <translation><numerusform>%n час назад</numerusform><numerusform>%n часов назад</numerusform><numerusform>%n часов назад</numerusform><numerusform>%n часов назад</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/qml/pages/CallLogPage.qml" line="97"/>
+        <source>%n minutes(s) ago</source>
+        <comment>refreshTimestamp</comment>
+        <translation><numerusform>%n минута назад</numerusform><numerusform>%n минут назад</numerusform><numerusform>%n минут назад</numerusform><numerusform>%n минут назад</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="92"/>
-        <source>days ago</source>
-        <translation>дней назад</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="94"/>
-        <source>day ago</source>
-        <translation>день назад</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="98"/>
-        <source>hours ago</source>
-        <translation>часов назал</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="100"/>
-        <source>hour ago</source>
-        <translation>час назад</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="103"/>
-        <source>min ago</source>
-        <translation>мин назад</translation>
-    </message>
-    <message>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="106"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="99"/>
         <source>Just now</source>
         <translation>Только что</translation>
     </message>
@@ -51,13 +51,13 @@
     <name>CallView</name>
     <message>
         <location filename="../src/qml/pages/CallView.qml" line="31"/>
-        <source>Incoming call</source>
-        <translation>Входящий звонок</translation>
+        <source>Call</source>
+        <translation>Звонок</translation>
     </message>
     <message>
         <location filename="../src/qml/pages/CallView.qml" line="31"/>
-        <source>Call</source>
-        <translation>Звонок</translation>
+        <source>Incoming call</source>
+        <translation>Входящий звонок</translation>
     </message>
     <message>
         <location filename="../src/qml/pages/CallView.qml" line="99"/>
@@ -113,7 +113,7 @@
     <name>FirstPage</name>
     <message>
         <location filename="../src/qml/pages/FirstPage.qml" line="35"/>
-        <source>Glacier Dialer</source>
+        <source>Dialer</source>
         <translation>Телефон</translation>
     </message>
 </context>
