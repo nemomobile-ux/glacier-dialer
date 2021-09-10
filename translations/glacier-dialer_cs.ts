@@ -52,7 +52,7 @@
     <message>
         <location filename="../src/qml/pages/CallView.qml" line="31"/>
         <source>Call</source>
-        <translation>Hovor</translation>
+        <translation>Volat</translation>
     </message>
     <message>
         <location filename="../src/qml/pages/CallView.qml" line="31"/>
@@ -106,7 +106,7 @@
     <message>
         <location filename="../src/qml/pages/DialerPage.qml" line="103"/>
         <source>Call</source>
-        <translation>Hovor</translation>
+        <translation>Volat</translation>
     </message>
 </context>
 <context>
