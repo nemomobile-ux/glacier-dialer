@@ -14,3 +14,4 @@ X-Osso-Type=application/x-executable
 X-Maemo-Service=org.glacier.voicecall.ui
 X-Maemo-Method=org.glacier.voicecall.ui.show
 Name[cs]=Telefon
+Name[ru]=Телефон
