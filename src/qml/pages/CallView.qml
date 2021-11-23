@@ -80,7 +80,7 @@ Page {
             font.pointSize: Theme.fontSizeMedium
             color: Theme.textColor
             visible: call.state == "active"
-            text: telephone.activeVoiceCall ? main.secondsToTimeString(telephone.activeVoiceCall.duration) : '00:00:00'
+            text: telephone.activeVoiceCall ? main.secondsToTimeString(telephone.activeVoiceCall.duration/1000) : '00:00:00'
         }
     }
 

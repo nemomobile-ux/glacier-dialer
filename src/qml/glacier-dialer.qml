@@ -74,7 +74,7 @@ ApplicationWindow
     function secondsToTimeString(seconds) {
         var h = Math.floor(seconds / 3600);
         var m = Math.floor((seconds - (h * 3600)) / 60);
-        var s = seconds - h * 3600 - m * 60;
+        var s = Math.floor(seconds - h * 3600 - m * 60);
         if(h < 10) h = '0' + h;
         if(m < 10) m = '0' + m;
         if(s < 10) s = '0' + s;
