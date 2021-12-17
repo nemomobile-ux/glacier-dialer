@@ -15,3 +15,7 @@ X-Maemo-Service=org.glacier.voicecall.ui
 X-Maemo-Method=org.glacier.voicecall.ui.show
 Name[cs]=Telefon
 Name[ru]=Телефон
+Name[uk]=Автодозвон
+Name[fi]=Puhelin
+Name[pl]=Telefon
+Name[de]=Anrufer
