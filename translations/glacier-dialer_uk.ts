@@ -15,7 +15,7 @@
         <location filename="../src/qml/pages/CallLogPage.qml" line="89"/>
         <source>%n year(s) ago</source>
         <comment>refreshTimestamp</comment>
-        <translation><numerusform>%n рок(ів) тому</numerusform><numerusform>%n рок(ів) тому</numerusform><numerusform>%n рок(ів) тому</numerusform><numerusform>%n року(ів) тому</numerusform></translation>
+        <translation><numerusform>%n рок тому</numerusform><numerusform>%n років тому</numerusform><numerusform>%n років тому</numerusform><numerusform>%n років тому</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/pages/CallLogPage.qml" line="91"/>
