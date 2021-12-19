@@ -15,31 +15,31 @@
         <location filename="../src/qml/pages/CallLogPage.qml" line="89"/>
         <source>%n year(s) ago</source>
         <comment>refreshTimestamp</comment>
-        <translation><numerusform>%n рок(ів) тому</numerusform><numerusform>%n рок(ів) тому</numerusform><numerusform>%n рок(ів) тому</numerusform><numerusform>%n року(ів) тому</numerusform></translation>
+        <translation><numerusform>%n рік тому</numerusform><numerusform>%n роки тому</numerusform><numerusform>%n років тому</numerusform><numerusform>%n років тому</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/pages/CallLogPage.qml" line="91"/>
         <source>%n months(s) ago</source>
         <comment>refreshTimestamp</comment>
-        <translation><numerusform>%n місяць(ів) тому</numerusform><numerusform>%n місяць(ів) тому</numerusform><numerusform>%n місяць(ів) тому</numerusform><numerusform>%n місяць(ів) тому</numerusform></translation>
+        <translation><numerusform>%n місяць тому</numerusform><numerusform>%n місяця тому</numerusform><numerusform>%n місяців тому</numerusform><numerusform>%n місяців тому</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/pages/CallLogPage.qml" line="93"/>
         <source>%n day(s) ago</source>
         <comment>refreshTimestamp</comment>
-        <translation><numerusform>%n день(ів) тому</numerusform><numerusform>%n день(ів) тому</numerusform><numerusform>%n день(ів) тому</numerusform><numerusform>%n день(ів) тому</numerusform></translation>
+        <translation><numerusform>%n день тому</numerusform><numerusform>%n дня тому</numerusform><numerusform>%n днів тому</numerusform><numerusform>%n днів тому</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/pages/CallLogPage.qml" line="95"/>
         <source>%n hours(s) ago</source>
         <comment>refreshTimestamp</comment>
-        <translation><numerusform>%n годину(ин) тому</numerusform><numerusform>%n годину(ин) тому</numerusform><numerusform>%n годину(ин) тому</numerusform><numerusform>%n годину(ин) тому</numerusform></translation>
+        <translation><numerusform>%n годину тому</numerusform><numerusform>%n години тому</numerusform><numerusform>%n годин тому</numerusform><numerusform>%n годин тому</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/pages/CallLogPage.qml" line="97"/>
         <source>%n minutes(s) ago</source>
         <comment>refreshTimestamp</comment>
-        <translation><numerusform>%n хвилину(ин) тому</numerusform><numerusform>%n хвилину(ин) тому</numerusform><numerusform>%n хвилину(ин) тому</numerusform><numerusform>%n хвилину(ин) тому</numerusform></translation>
+        <translation><numerusform>%n хвилину тому</numerusform><numerusform>%n хвилини тому</numerusform><numerusform>%n хвилин тому</numerusform><numerusform>%n хвилин тому</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/pages/CallLogPage.qml" line="99"/>
