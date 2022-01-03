@@ -27,7 +27,7 @@ import org.nemomobile.contacts 1.0
 Rectangle {
     id: btn
 
-    color: "transparent"
+    color: dialerButtonMouse.pressed ? Theme.accentColor : "transparent"
 
     radius: height/2
 
@@ -56,16 +56,10 @@ Rectangle {
     }
 
     MouseArea {
+        id: dialerButtonMouse
         anchors.fill: parent
         onPressed: {
             dialedNumber.insert(dialedNumber.cursorPosition,btn.text)
-            btn.color = Theme.accentColor
-        }
-        onPressAndHold: {
-
-        }
-        onReleased: {
-            btn.color = Theme.backgroundColor
         }
     }
 }
