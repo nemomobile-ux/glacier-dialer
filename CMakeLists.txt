@@ -13,9 +13,10 @@ set(CMAKE_INSTALL_PREFIX /usr)
 include(FeatureSummary)
 include(GNUInstallDirs)
 
-set(QT_MIN_VERSION "5.6.0")
+set(QT_MIN_VERSION "5.11.0")
 find_package(Qt5 COMPONENTS Gui Qml Quick DBus LinguistTools REQUIRED)
-find_package(Glacier COMPONENTS App REQUIRED)
+find_package(Glacier 0.8 COMPONENTS App REQUIRED)
+find_package(Qt5QuickCompiler)
 
 add_subdirectory(src)
 

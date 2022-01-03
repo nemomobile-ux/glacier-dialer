@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>glacier-dialer.qml</file>
+        <file>components/SearchBox.qml</file>
+        <file>components/VoicecallService.qml</file>
+        <file>components/DialerButton.qml</file>
+        <file>pages/CallView.qml</file>
+        <file>pages/ContactDelegate.qml</file>
+        <file>pages/ContactDetails.qml</file>
+        <file>pages/DialerPage.qml</file>
+        <file>pages/FirstPage.qml</file>
+        <file>pages/ContactsPage.qml</file>
+        <file>pages/CallLogPage.qml</file>
+    </qresource>
+</RCC>

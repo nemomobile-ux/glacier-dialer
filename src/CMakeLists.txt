@@ -2,7 +2,9 @@ set(SRC glacier-dialer.cpp
     dbusadaptor.cpp
 )
 
-add_executable(glacier-dialer ${SRC})
+qtquick_compiler_add_resources(RESOURCES qml/glacier-dialer.qrc)
+
+add_executable(glacier-dialer ${SRC} ${RESOURCES})
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -fvisibility=hidden -fvisibility-inlines-hidden")
 set(CMAKE_EXE_LINKER_FLAGS "-pie -rdynamic")
