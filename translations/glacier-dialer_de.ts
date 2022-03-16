@@ -80,7 +80,7 @@
     <message>
         <location filename="../src/qml/pages/ContactDetails.qml" line="60"/>
         <source>Last name</source>
-        <translation>Name</translation>
+        <translation>Nachname</translation>
     </message>
     <message>
         <location filename="../src/qml/pages/ContactDetails.qml" line="66"/>
