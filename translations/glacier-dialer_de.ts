@@ -114,7 +114,7 @@
     <message>
         <location filename="../src/qml/pages/FirstPage.qml" line="35"/>
         <source>Dialer</source>
-        <translation>Anrufer</translation>
+        <translation>Telefon</translation>
     </message>
 </context>
 <context>
