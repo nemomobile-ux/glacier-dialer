@@ -62,7 +62,7 @@
     <message>
         <location filename="../src/qml/pages/CallView.qml" line="99"/>
         <source>Answer</source>
-        <translation>Antwort</translation>
+        <translation>Antworten</translation>
     </message>
     <message>
         <location filename="../src/qml/pages/CallView.qml" line="112"/>
