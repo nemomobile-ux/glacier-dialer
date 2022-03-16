@@ -122,7 +122,7 @@
     <message>
         <location filename="../src/glacier-dialer.cpp" line="56"/>
         <source>Dialer</source>
-        <translation>Anrufer</translation>
+        <translation>Telefon</translation>
     </message>
 </context>
 </TS>
