@@ -44,7 +44,7 @@
     <message>
         <location filename="../src/qml/pages/CallLogPage.qml" line="99"/>
         <source>Just now</source>
-        <translation>Gerade</translation>
+        <translation>Gerade eben</translation>
     </message>
 </context>
 <context>
