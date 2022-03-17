@@ -15,7 +15,7 @@
         <location filename="../src/qml/pages/CallLogPage.qml" line="89"/>
         <source>%n year(s) ago</source>
         <comment>refreshTimestamp</comment>
-        <translation><numerusform>Vor %n Jahren</numerusform><numerusform>Vor %n  Jahren</numerusform></translation>
+        <translation><numerusform>Vor %n Jahren</numerusform><numerusform>Vor %n Jahren</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../src/qml/pages/CallLogPage.qml" line="91"/>
