@@ -65,31 +65,31 @@ Page {
     Grid {
         id: dialerButtons
         width: parent.width
-        height: parent.height-numForDialing.height-dimmer.height-Theme.itemSpacingLarge*3
+        height: Theme.itemHeightLarge*4
         anchors {
-            top: numForDialing.bottom
-            topMargin: 5
-            bottomMargin: 10
+            bottom: dimmer.top
+            bottomMargin: Theme.itemSpacingLarge
         }
 
         columns: 3
+        rows: 4
 
         Repeater {
             model: [0,1,2,3,4,5,6,7,8,9,10,11]
             delegate: DialerButton {
                 width: dialerButtons.width/3
-                height: dialerButtons.height/4
+                height: Theme.itemHeightLarge
                 index: model.index
             }
         }
     }
+
     Rectangle {
         id: dimmer
 
         height: Theme.itemHeightLarge+Theme.itemSpacingLarge
         width: parent.width-Theme.itemSpacingLarge*2
-        color: "green"
-        radius: height/2
+        color: Theme.accentColor
 
         anchors{
             bottom: parent.bottom
@@ -99,11 +99,12 @@ Page {
         }
 
         Text {
-            color: "white"
+            color: Theme.textColor
             text: qsTr("Call")
             font.pixelSize: dimmer.height*0.8
             anchors.centerIn: parent
         }
+
         MouseArea {
             anchors.fill: parent
             onClicked: {

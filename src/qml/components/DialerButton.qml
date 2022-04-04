@@ -24,42 +24,49 @@ import QtQuick.Controls.Styles.Nemo 1.0
 
 import org.nemomobile.contacts 1.0
 
-Rectangle {
-    id: btn
-
-    color: dialerButtonMouse.pressed ? Theme.accentColor : "transparent"
-
-    radius: height/2
+Item{
+    id: btnCanvas
 
     property int index
-    property string text: {
-        if (index <= 8) {
-            return "" + (index + 1)
-        }
 
-        if (index > 8) {
-            switch(index) {
-            case 9: return "*";
-            case 10: return "0";
-            case 11: return "#";
+    Rectangle {
+        id: btn
+        width: height
+        height: btnCanvas.height
+
+        anchors.centerIn: parent
+
+        color: dialerButtonMouse.pressed ? Theme.accentColor : "transparent"
+        radius: height/2
+
+        property string text: {
+            if (btnCanvas.index <= 8) {
+                return "" + (btnCanvas.index + 1)
+            }
+
+            if (btnCanvas.index > 8) {
+                switch(btnCanvas.index) {
+                case 9: return "*";
+                case 10: return "0";
+                case 11: return "#";
+                }
             }
         }
-    }
 
-    Text {
-        id: numberText
-        color: Theme.textColor
-        font.pixelSize: btn.height*0.8
-        anchors.centerIn: parent
-        font.bold: true
-        text: btn.text
-    }
+        Text {
+            id: numberText
+            color: Theme.textColor
+            font.pixelSize: btn.height*0.8
+            anchors.centerIn: parent
+            text: btn.text
+        }
 
-    MouseArea {
-        id: dialerButtonMouse
-        anchors.fill: parent
-        onPressed: {
-            dialedNumber.insert(dialedNumber.cursorPosition,btn.text)
+        MouseArea {
+            id: dialerButtonMouse
+            anchors.fill: parent
+            onPressed: {
+                dialedNumber.insert(dialedNumber.cursorPosition,btn.text)
+            }
         }
     }
 }

@@ -41,7 +41,7 @@ Page {
                 }
             },
             ToolButton {
-                iconSource: "image://theme/user"
+                iconSource: "image://theme/search"
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("ContactsPage.qml"));
                 }
