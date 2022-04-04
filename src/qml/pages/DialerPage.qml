@@ -40,7 +40,7 @@ Page {
             width: dialer.width-dialedNumber.height
             height: Theme.itemHeightLarge
             font.pixelSize: numForDialing.height*0.85
-            color: "steelblue"
+            color: Theme.accentColor
             horizontalAlignment: TextEdit.AlignRight
         }
 
@@ -62,6 +62,7 @@ Page {
             }
         }
     }
+
     Grid {
         id: dialerButtons
         width: parent.width

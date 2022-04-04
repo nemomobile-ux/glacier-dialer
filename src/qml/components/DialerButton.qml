@@ -65,7 +65,7 @@ Item{
             id: dialerButtonMouse
             anchors.fill: parent
             onPressed: {
-                dialedNumber.insert(dialedNumber.cursorPosition,btn.text)
+                dialedNumber.insert(dialedNumber.text.length ,btn.text)
             }
         }
     }
