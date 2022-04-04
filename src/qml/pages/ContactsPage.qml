@@ -1,5 +1,6 @@
 /*
  * Copyright 2015 Aleksi Suomalainen <suomalainen.aleksi@gmail.com>
+ * Copyright (C) 2022 Chupligin Sergey <neochapay@gmail.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -51,6 +52,7 @@ Page {
         onSearchTextChanged: {
             app.contactListModel.search(searchbox.searchText);
         }
+        visible: contactsModel.count != 0
     }
 
     ContactListWidget {
@@ -65,7 +67,6 @@ Page {
         delegate: ContactListDelegate {
              showNext: false
              onClicked: {
-                 console.log(model.person.phoneDetails[0].number)
                  selectContact(model.person.phoneDetails[0].number)
              }
         }

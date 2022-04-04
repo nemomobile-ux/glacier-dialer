@@ -2,7 +2,7 @@
  **
  ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
  ** Copyright (C) 2012 Robin Burchell <robin+mer@viroteck.net>
- ** Copyright (C) 2018 Chupligin Sergey <neochapay@gmail.com>
+ ** Copyright (C) 2018-2022 Chupligin Sergey <neochapay@gmail.com>
  **
  ** $QT_BEGIN_LICENSE:BSD$
  ** You may use this file under the terms of the BSD license as follows:
@@ -55,7 +55,7 @@ Item {
 
     // Attribute definitions
     width: parent ? parent.width : 0
-    height: Theme.itemHeightLarge
+    height: visible ? Theme.itemHeightLarge : 0
 
     TextField {
         id: searchTextInput
