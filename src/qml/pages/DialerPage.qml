@@ -85,12 +85,11 @@ Page {
         }
     }
 
-    Rectangle {
+    Item {
         id: dimmer
 
         height: Theme.itemHeightLarge+Theme.itemSpacingLarge
         width: parent.width-Theme.itemSpacingLarge*2
-        color: Theme.accentColor
 
         anchors{
             bottom: parent.bottom
@@ -99,18 +98,20 @@ Page {
             leftMargin: Theme.itemSpacingLarge
         }
 
-        Text {
-            color: Theme.textColor
-            text: qsTr("Call")
-            font.pixelSize: dimmer.height*0.8
+        NemoIcon {
+            id: callIconBtn
+            height: Theme.itemHeightLarge
+            width: height
+            source: "image://theme/phone"
             anchors.centerIn: parent
-        }
+            color: Theme.accentColor
 
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                var normalizedNumber = Person.normalizePhoneNumber(dialedNumber.text)
-                telephone.dial(telephone.defaultProviderId, normalizedNumber)
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    var normalizedNumber = Person.normalizePhoneNumber(dialedNumber.text)
+                    telephone.dial(telephone.defaultProviderId, normalizedNumber)
+                }
             }
         }
     }
