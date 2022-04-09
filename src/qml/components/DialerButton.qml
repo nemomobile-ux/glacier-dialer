@@ -61,12 +61,18 @@ Item{
             text: btn.text
         }
 
-        MouseArea {
-            id: dialerButtonMouse
-            anchors.fill: parent
-            onPressed: {
-                dialedNumber.insert(dialedNumber.text.length ,btn.text)
+    }
+    MouseArea {
+        id: dialerButtonMouse
+        anchors.fill: parent
+        onPressed: {
+            dialedNumber.insert(dialedNumber.text.length ,btn.text)
+        }
+        onPressAndHold: {
+            if (btn.text == "0") {
+                dialedNumber.text = dialedNumber.text.replace(/0$/,"+") // replace last 0 with +
             }
         }
     }
+
 }
