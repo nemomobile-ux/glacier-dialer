@@ -123,24 +123,15 @@
 <context>
     <name>ContactsPage</name>
     <message>
-        <location filename="../src/qml/pages/ContactsPage.qml" line="38"/>
-        <location filename="../src/qml/pages/ContactsPage.qml" line="38"/>
+        <location filename="../src/qml/pages/ContactsPage.qml" line="39"/>
+        <location filename="../src/qml/pages/ContactsPage.qml" line="39"/>
         <source>Contacts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/ContactsPage.qml" line="48"/>
-        <location filename="../src/qml/pages/ContactsPage.qml" line="48"/>
+        <location filename="../src/qml/pages/ContactsPage.qml" line="49"/>
+        <location filename="../src/qml/pages/ContactsPage.qml" line="49"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DialerPage</name>
-    <message>
-        <location filename="../src/qml/pages/DialerPage.qml" line="103"/>
-        <location filename="../src/qml/pages/DialerPage.qml" line="103"/>
-        <source>Call</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

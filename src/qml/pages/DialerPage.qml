@@ -85,11 +85,13 @@ Page {
         }
     }
 
-    Item {
+    Rectangle {
         id: dimmer
 
         height: Theme.itemHeightLarge+Theme.itemSpacingLarge
         width: parent.width-Theme.itemSpacingLarge*2
+        color: dimmerMouse.pressed ? Theme.fillDarkColor : "transparent"
+        radius: Theme.itemSpacingSmall
 
         anchors{
             bottom: parent.bottom
@@ -105,15 +107,17 @@ Page {
             source: "image://theme/phone"
             anchors.centerIn: parent
             color: Theme.accentColor
+        }
 
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    var normalizedNumber = Person.normalizePhoneNumber(dialedNumber.text)
-                    telephone.dial(telephone.defaultProviderId, normalizedNumber)
-                }
+        MouseArea {
+            id: dimmerMouse
+            anchors.fill: parent
+            onClicked: {
+                var normalizedNumber = Person.normalizePhoneNumber(dialedNumber.text)
+                telephone.dial(telephone.defaultProviderId, normalizedNumber)
             }
         }
+
     }
 }
 

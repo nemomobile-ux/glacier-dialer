@@ -16,3 +16,4 @@ debug*.list
 CMakeLists.txt.user
 CMakeLists.txt.user.*
 build/
+.qtc_clangd/
