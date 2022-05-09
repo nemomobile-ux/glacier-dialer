@@ -28,7 +28,7 @@ Page {
     id: call
     headerTools: HeaderToolsLayout {
         id: tools
-        title: call.state == "incoming" ? qsTr("Incoming call") : qsTr("Call")
+        title: call.state === "incoming" ? qsTr("Incoming call") : qsTr("Call")
     }
 
     state: telephone.activeVoiceCall ? telephone.activeVoiceCall.statusText : 'disconnected'
