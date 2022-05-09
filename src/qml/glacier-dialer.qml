@@ -45,7 +45,9 @@ ApplicationWindow
     VoiceCallManager {
         id: telephone
         onActiveVoiceCallChanged: {
+
             if(activeVoiceCall) {
+
                 main.activeVoiceCallPerson = peopleModel.personByPhoneNumber(activeVoiceCall.lineId, true);
 
                 pageItem.pageStack.push({
@@ -83,6 +85,11 @@ ApplicationWindow
     PeopleModel {
         id: peopleModel
         filterType: PeopleModel.FilterAll
+        onPopulatedChanged: {
+            if (populated && telephone.activeVoiceCall) {
+                main.activeVoiceCallPerson = peopleModel.personByPhoneNumber(activeVoiceCall.lineId, true);
+            }
+        }
     }
     CommCallModel {
         id: commCallModel
