@@ -87,7 +87,7 @@ ApplicationWindow
         filterType: PeopleModel.FilterAll
         onPopulatedChanged: {
             if (populated && telephone.activeVoiceCall) {
-                main.activeVoiceCallPerson = peopleModel.personByPhoneNumber(activeVoiceCall.lineId, true);
+                main.activeVoiceCallPerson = peopleModel.personByPhoneNumber(telephone.activeVoiceCall.lineId, true);
             }
         }
     }
