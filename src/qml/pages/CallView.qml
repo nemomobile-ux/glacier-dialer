@@ -42,6 +42,12 @@ Page {
         State {name:'disconnected'}
     ]
 
+    property var telephone
+    property string lineId: (telephone && telephone.activeVoiceCall) ? telephone.activeVoiceCall.lineId : ""
+    onLineIdChanged: {
+        main.activeVoiceCallPerson = peopleModel.personByPhoneNumber(lineId, true);
+    }
+
     Column {
         width: parent.width
         height: parent.heigh - buttonRow.height
@@ -63,7 +69,6 @@ Page {
                   ? main.activeVoiceCallPerson.displayLabel
                   : (telephone.activeVoiceCall ? telephone.activeVoiceCall.lineId : '');
         }
-
 
         Image {
             id: avatar
