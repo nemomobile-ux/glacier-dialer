@@ -50,7 +50,7 @@ Page {
         anchors.top: parent.top
         width: parent.width
         onSearchTextChanged: {
-            app.contactListModel.search(searchbox.searchText);
+            contactsModel.search(searchbox.searchText);
         }
         visible: contactsModel.count != 0
     }
