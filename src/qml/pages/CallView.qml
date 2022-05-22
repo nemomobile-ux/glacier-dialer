@@ -24,6 +24,8 @@ import QtQuick.Controls.Styles.Nemo 1.0
 import org.nemomobile.contacts 1.0
 import org.nemomobile.commhistory 1.0
 
+import "../components"
+
 Page {
     id: call
     headerTools: HeaderToolsLayout {
@@ -87,7 +89,51 @@ Page {
             visible: call.state == "active"
             text: telephone.activeVoiceCall ? main.secondsToTimeString(telephone.activeVoiceCall.duration/1000) : '00:00:00'
         }
+
+        Rectangle {
+            // add some space
+            width: parent.width
+            color: "transparent"
+            height:  Theme.itemHeightLarge
+        }
+
+        Row {
+            anchors.left: parent.left;
+            anchors.right: parent.right;
+            anchors.margins:  Theme.itemSpacingLarge
+            spacing: Theme.itemSpacingMedium
+            leftPadding: (width - (3 * Theme.itemHeightMedium ) - 2* spacing) / 2
+
+            NemoIconButton {
+                source: telephone.isSpeakerMuted ? "image://theme/volume-mute" : "image://theme/volume-up"
+                width: Theme.itemHeightMedium
+                height: width
+                onClicked: {
+                    telephone.isSpeakerMuted = !telephone.isSpeakerMuted;
+                }
+            }
+            NemoIconButton {
+                source: telephone.isMicrophoneMuted ? "image://theme/microphone-alt-slash" : "image://theme/microphone-alt"
+                width: Theme.itemHeightMedium
+                height: width
+                onClicked: {
+                    telephone.isMicrophoneMuted = !telephone.isMicrophoneMuted;
+                }
+
+            }
+            NemoIconButton {
+                source: "image://theme/keyboard"
+                width: Theme.itemHeightMedium
+                height: width
+                onClicked: {
+                    console.log("TODO")
+                }
+            }
+
+        }
+
     }
+
 
     Item {
         id: buttonRow

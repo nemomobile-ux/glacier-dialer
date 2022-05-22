@@ -4,6 +4,7 @@
         <file>components/SearchBox.qml</file>
         <file>components/VoicecallService.qml</file>
         <file>components/DialerButton.qml</file>
+        <file>components/NemoIconButton.qml</file>
         <file>pages/CallView.qml</file>
         <file>pages/ContactDelegate.qml</file>
         <file>pages/ContactDetails.qml</file>
