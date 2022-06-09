@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg385"
+   sodipodi:docname="phone-out.svg"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   inkscape:export-filename="phone-out.png"
+   inkscape:export-xdpi="48"
+   inkscape:export-ydpi="48"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs389" />
+  <sodipodi:namedview
+     id="namedview387"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.15625"
+     inkscape:cx="256"
+     inkscape:cy="256"
+     inkscape:window-width="1920"
+     inkscape:window-height="1000"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg385" />
+  <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
+  <path
+     d="m 469.77414,369.19254 -19.75155,85.63253 c -2.77456,12.10578 -13.41406,20.57559 -25.87665,20.57559 C 209.81825,475.38366 35.49488,301.06031 35.49488,86.724116 c 0,-12.454088 8.468956,-23.107183 20.575594,-25.868152 L 141.70301,41.104413 c 12.47109,-2.890098 25.21402,3.583314 30.39615,15.393467 l 39.52009,92.17391 c 4.61974,10.85698 1.50367,23.50646 -7.62877,30.96533 l -45.73864,36.72514 c 28.867,58.8044 76.67849,106.6159 135.49988,135.49988 l 37.44724,-45.70466 c 7.38071,-9.15792 20.12535,-12.32667 30.98233,-7.62452 l 92.1739,39.51159 c 11.08635,5.83202 18.30735,18.74486 15.41895,31.14799 z"
+     id="path383"
+     style="stroke-width:0.849529" />
+  <path
+     d="m 368.49077,95.466434 c -10.34602,0 -18.73642,-8.37284 -18.73642,-18.736426 0,-10.363586 8.3904,-18.736427 18.73642,-18.736427 h 56.20929 0.0586 c 5.15252,0 9.77808,2.107848 13.17405,5.445274 l 0.0586,0.05855 c 1.75654,1.815092 3.10323,3.864388 4.04004,6.089339 0.87827,2.166399 1.40524,4.625555 1.40524,6.616301 v 56.736245 c 0,10.36358 -8.37284,18.73642 -18.73643,18.73642 -10.36359,0 -18.73642,-8.37284 -18.73642,-18.73642 v -10.9491 l -61.69555,61.65455 c -7.31892,7.31892 -19.18142,7.31892 -26.49858,0 -7.31716,-7.31891 -7.31716,-19.14628 0,-26.4652 l 61.67037,-61.713106 z"
+     id="path2802"
+     style="stroke-width:0.585513" />
+</svg>

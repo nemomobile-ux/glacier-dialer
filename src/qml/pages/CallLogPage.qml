@@ -36,13 +36,6 @@ Page {
         showBackButton: true;
 
         tools: [
-            ToolButton {
-                iconSource: "image://theme/check"
-                onClicked: {
-                    commCallModel.markAllRead()
-                }
-                visible: historyList.count != 0
-            }
         ]
     }
 
@@ -59,8 +52,16 @@ Page {
 
             contact: model.contactIds.length ? peopleModel.personById(model.contactIds[0]) : null
             label: contact ? contact.displayLabel : model.remoteUid
-            description: refreshTimestamp(model.startTime)
-            icon: "image://theme/phone"
+
+            description: refreshTimestamp(model.startTime) + " "
+
+            icon: model.isMissedCall
+            ? "file:///usr/share/glacier-dialer/images/phone-missed.png"
+                  : (
+                        (model.direction === CommCallModel.Inbound)
+                        ? "file:///usr/share/glacier-dialer/images/phone-in.png"
+                        : "file:///usr/share/glacier-dialer/images/phone-out.png"
+                        )
 
             onClicked: {
                 telephone.dial(telephone.defaultProviderId, model.remoteUid)
