@@ -65,13 +65,13 @@ Page {
                         onClicked: {
                             messagesInterface.startConversation(telephone.defaultProviderId, model.remoteUid)
                         }
-//                    },
-//                    ActionButton {
-//                        iconSource: "image://theme/address-card"
-//                        onClicked: {
-//                                // edit or create new contact
-//                            }
-//                        }
+                    },
+                    ActionButton {
+                        iconSource: "image://theme/address-card"
+                        onClicked: {
+                            // edit or create new contact
+                            console.log("TODO")
+                        }
                     }
                 ]
 
