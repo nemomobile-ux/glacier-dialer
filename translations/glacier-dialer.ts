@@ -10,14 +10,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="73"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="73"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="95"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="95"/>
         <source>Call journal empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/pages/CallLogPage.qml" line="89"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="89"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="111"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="111"/>
         <source>%n year(s) ago</source>
         <comment>refreshTimestamp</comment>
         <translation type="unfinished">
@@ -26,9 +26,9 @@
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/pages/CallLogPage.qml" line="91"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="91"/>
-        <source>%n months(s) ago</source>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="113"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="113"/>
+        <source>%n month(s) ago</source>
         <comment>refreshTimestamp</comment>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -36,8 +36,28 @@
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/pages/CallLogPage.qml" line="93"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="93"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="117"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="117"/>
+        <source>%n hour(s) ago</source>
+        <comment>refreshTimestamp</comment>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/qml/pages/CallLogPage.qml" line="119"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="119"/>
+        <source>%n minute(s) ago</source>
+        <comment>refreshTimestamp</comment>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/qml/pages/CallLogPage.qml" line="115"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="115"/>
         <source>%n day(s) ago</source>
         <comment>refreshTimestamp</comment>
         <translation type="unfinished">
@@ -45,29 +65,9 @@
             <numerusform></numerusform>
         </translation>
     </message>
-    <message numerus="yes">
-        <location filename="../src/qml/pages/CallLogPage.qml" line="95"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="95"/>
-        <source>%n hours(s) ago</source>
-        <comment>refreshTimestamp</comment>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../src/qml/pages/CallLogPage.qml" line="97"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="97"/>
-        <source>%n minutes(s) ago</source>
-        <comment>refreshTimestamp</comment>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
     <message>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="99"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="99"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="121"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="121"/>
         <source>Just now</source>
         <translation type="unfinished"></translation>
     </message>
@@ -75,26 +75,26 @@
 <context>
     <name>CallView</name>
     <message>
-        <location filename="../src/qml/pages/CallView.qml" line="31"/>
-        <location filename="../src/qml/pages/CallView.qml" line="31"/>
+        <location filename="../src/qml/pages/CallView.qml" line="33"/>
+        <location filename="../src/qml/pages/CallView.qml" line="33"/>
         <source>Call</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/CallView.qml" line="31"/>
-        <location filename="../src/qml/pages/CallView.qml" line="31"/>
+        <location filename="../src/qml/pages/CallView.qml" line="33"/>
+        <location filename="../src/qml/pages/CallView.qml" line="33"/>
         <source>Incoming call</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/CallView.qml" line="99"/>
-        <location filename="../src/qml/pages/CallView.qml" line="99"/>
+        <location filename="../src/qml/pages/CallView.qml" line="150"/>
+        <location filename="../src/qml/pages/CallView.qml" line="150"/>
         <source>Answer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/CallView.qml" line="112"/>
-        <location filename="../src/qml/pages/CallView.qml" line="112"/>
+        <location filename="../src/qml/pages/CallView.qml" line="163"/>
+        <location filename="../src/qml/pages/CallView.qml" line="163"/>
         <source>Hang up</source>
         <translation type="unfinished"></translation>
     </message>

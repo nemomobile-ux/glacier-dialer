@@ -39,6 +39,9 @@ Page {
         ]
     }
 
+    MessagesInterface { id: messagesInterface }
+
+
     ListView {
         id: historyList
         anchors.fill: parent
@@ -53,7 +56,25 @@ Page {
             contact: model.contactIds.length ? peopleModel.personById(model.contactIds[0]) : null
             label: contact ? contact.displayLabel : model.remoteUid
 
-            description: refreshTimestamp(model.startTime) + " "
+            description: refreshTimestamp(model.startTime)
+                         + (model.isMissedCall ? "" : " • " +secondsToTimeString((model.endTime.getTime() - model.startTime.getTime()) / 1000))
+//            + secondsToTimeString((model.endTime.getTime() - model.startTime.getTime()) / 1000)
+                actions:[
+                    ActionButton {
+                        iconSource: "image://theme/comment"
+                        onClicked: {
+                            messagesInterface.startConversation(telephone.defaultProviderId, model.remoteUid)
+                        }
+                    },
+                    ActionButton {
+                        iconSource: "image://theme/address-card"
+                        onClicked: {
+                            // edit or create new contact
+                            console.log("TODO")
+                        }
+                    }
+                ]
+
 
             icon: model.isMissedCall
             ? "file:///usr/share/glacier-dialer/images/phone-missed.png"
@@ -89,13 +110,13 @@ Page {
         if (years >= 1) {
             timeAgo = qsTr("%n year(s) ago", "refreshTimestamp", years)
         }else if (months >= 1) {
-            timeAgo = qsTr("%n months(s) ago", "refreshTimestamp", months)
+            timeAgo = qsTr("%n month(s) ago", "refreshTimestamp", months)
         }else if (days >= 1) {
             timeAgo = qsTr("%n day(s) ago", "refreshTimestamp", days)
         }else if (hours >= 1) {
-            timeAgo = qsTr("%n hours(s) ago", "refreshTimestamp", hours)
+            timeAgo = qsTr("%n hour(s) ago", "refreshTimestamp", hours)
         } else if (minutes >= 1) {
-            timeAgo = qsTr("%n minutes(s) ago", "refreshTimestamp", minutes)
+            timeAgo = qsTr("%n minute(s) ago", "refreshTimestamp", minutes)
         } else {
             timeAgo = qsTr("Just now")
         }
