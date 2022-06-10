@@ -8,49 +8,49 @@
         <translation>Historie hovorů</translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="73"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="73"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="95"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="95"/>
         <source>Call journal empty</source>
         <translation>Historie hovorů je prázdná</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/pages/CallLogPage.qml" line="89"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="89"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="111"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="111"/>
         <source>%n year(s) ago</source>
         <comment>refreshTimestamp</comment>
         <translation><numerusform>loni</numerusform><numerusform>před %n lety</numerusform><numerusform>před %n lety</numerusform><numerusform>před %n lety</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/pages/CallLogPage.qml" line="91"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="91"/>
-        <source>%n months(s) ago</source>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="113"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="113"/>
+        <source>%n month(s) ago</source>
         <comment>refreshTimestamp</comment>
-        <translation><numerusform>před měsícem</numerusform><numerusform>před %n měsíci</numerusform><numerusform>před %n měsíci</numerusform><numerusform>před %n měsíci</numerusform></translation>
+        <translation><numerusform>měsíc</numerusform><numerusform>%n měsíce</numerusform><numerusform>%n měsíců</numerusform><numerusform>%n měsíců</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/pages/CallLogPage.qml" line="93"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="93"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="117"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="117"/>
+        <source>%n hour(s) ago</source>
+        <comment>refreshTimestamp</comment>
+        <translation><numerusform>hodina</numerusform><numerusform>%n hodiny</numerusform><numerusform>%n hodin</numerusform><numerusform>%n hodin</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/qml/pages/CallLogPage.qml" line="119"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="119"/>
+        <source>%n minute(s) ago</source>
+        <comment>refreshTimestamp</comment>
+        <translation><numerusform>minuta</numerusform><numerusform>%n minuty</numerusform><numerusform>%n minut</numerusform><numerusform>%n minut</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/qml/pages/CallLogPage.qml" line="115"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="115"/>
         <source>%n day(s) ago</source>
         <comment>refreshTimestamp</comment>
         <translation><numerusform>včera</numerusform><numerusform>před %n dny</numerusform><numerusform>před %n dny</numerusform><numerusform>před %n dny</numerusform></translation>
     </message>
-    <message numerus="yes">
-        <location filename="../src/qml/pages/CallLogPage.qml" line="95"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="95"/>
-        <source>%n hours(s) ago</source>
-        <comment>refreshTimestamp</comment>
-        <translation><numerusform>před hodinou</numerusform><numerusform>před %n hodinami</numerusform><numerusform>před %n hodinami</numerusform><numerusform>před %n hodinami</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../src/qml/pages/CallLogPage.qml" line="97"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="97"/>
-        <source>%n minutes(s) ago</source>
-        <comment>refreshTimestamp</comment>
-        <translation><numerusform>před minutou</numerusform><numerusform>před %n minutami</numerusform><numerusform>před %n minutami</numerusform><numerusform>před %n minutami</numerusform></translation>
-    </message>
     <message>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="99"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="99"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="121"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="121"/>
         <source>Just now</source>
         <translation>Právě teď</translation>
     </message>
@@ -58,26 +58,26 @@
 <context>
     <name>CallView</name>
     <message>
-        <location filename="../src/qml/pages/CallView.qml" line="31"/>
-        <location filename="../src/qml/pages/CallView.qml" line="31"/>
+        <location filename="../src/qml/pages/CallView.qml" line="33"/>
+        <location filename="../src/qml/pages/CallView.qml" line="33"/>
         <source>Call</source>
         <translation>Volat</translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/CallView.qml" line="31"/>
-        <location filename="../src/qml/pages/CallView.qml" line="31"/>
+        <location filename="../src/qml/pages/CallView.qml" line="33"/>
+        <location filename="../src/qml/pages/CallView.qml" line="33"/>
         <source>Incoming call</source>
         <translation>Příchozí hovor</translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/CallView.qml" line="99"/>
-        <location filename="../src/qml/pages/CallView.qml" line="99"/>
+        <location filename="../src/qml/pages/CallView.qml" line="150"/>
+        <location filename="../src/qml/pages/CallView.qml" line="150"/>
         <source>Answer</source>
         <translation>Odpovědět</translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/CallView.qml" line="112"/>
-        <location filename="../src/qml/pages/CallView.qml" line="112"/>
+        <location filename="../src/qml/pages/CallView.qml" line="163"/>
+        <location filename="../src/qml/pages/CallView.qml" line="163"/>
         <source>Hang up</source>
         <translation>Zavěsit</translation>
     </message>
