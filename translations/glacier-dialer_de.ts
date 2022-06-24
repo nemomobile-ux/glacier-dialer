@@ -46,7 +46,7 @@
         <location filename="../src/qml/pages/CallLogPage.qml" line="115"/>
         <source>%n day(s) ago</source>
         <comment>refreshTimestamp</comment>
-        <translation><numerusform>Vor %n Tagen</numerusform><numerusform>Vor %n Tagen</numerusform></translation>
+        <translation><numerusform>Vor einem Tag</numerusform><numerusform>Vor %n Tagen</numerusform></translation>
     </message>
     <message>
         <location filename="../src/qml/pages/CallLogPage.qml" line="121"/>
