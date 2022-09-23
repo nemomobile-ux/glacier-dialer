@@ -35,14 +35,13 @@
 #include <QDBusAbstractAdaptor>
 #include <QQuickWindow>
 
-class DBusAdaptor : public QDBusAbstractAdaptor
-{
+class DBusAdaptor : public QDBusAbstractAdaptor {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.glacier.voicecall.ui")
 
 public:
     explicit DBusAdaptor(QQuickWindow* manager);
-    
+
 public slots:
     void show(QStringList args = QStringList());
 

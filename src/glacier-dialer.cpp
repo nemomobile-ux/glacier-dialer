@@ -34,29 +34,29 @@
 #endif
 #include <QtGui/QGuiApplication>
 
-#include <QtQml>
-#include <QtQuick/QQuickView>
-#include <QtCore/QString>
-#include <QScreen>
+#include <QCoreApplication>
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
-#include <QCoreApplication>
+#include <QScreen>
+#include <QtCore/QString>
+#include <QtQml>
+#include <QtQuick/QQuickView>
 
 #include <glacierapp.h>
 
 #include "dbusadaptor.h"
 
-Q_DECL_EXPORT int main(int argc, char *argv[])
+Q_DECL_EXPORT int main(int argc, char* argv[])
 {
-    QGuiApplication *app = GlacierApp::app(argc, argv);
+    QGuiApplication* app = GlacierApp::app(argc, argv);
     app->setOrganizationName("NemoMobile");
 
-    QQuickWindow *window = GlacierApp::showWindow();
+    QQuickWindow* window = GlacierApp::showWindow();
 
     window->setTitle(QObject::tr("Dialer"));
     window->setIcon(QIcon("/usr/share/glacier-dialer/images/glacier-dialer.png"));
 
-    if ( !window ) {
+    if (!window) {
         qWarning("Error: Your root item has to be a Window.");
         return -1;
     }
@@ -67,4 +67,3 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     return app->exec();
 }
-
