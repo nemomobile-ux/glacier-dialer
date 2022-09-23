@@ -32,25 +32,24 @@
 
 #include "dbusadaptor.h"
 
+#include <QCoreApplication>
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
 #include <QDebug>
-#include <QCoreApplication>
 
-DBusAdaptor::DBusAdaptor(QQuickWindow *m)
-    : QDBusAbstractAdaptor(m), wm(m)
+DBusAdaptor::DBusAdaptor(QQuickWindow* m)
+    : QDBusAbstractAdaptor(m)
+    , wm(m)
 {
     QDBusConnection sessionbus = QDBusConnection::sessionBus();
 
-    if(sessionbus.interface()->isServiceRegistered("org.glacier.voicecall.ui"))
-    {
+    if (sessionbus.interface()->isServiceRegistered("org.glacier.voicecall.ui")) {
         qWarning() << "Second start of glacier dialler";
         QCoreApplication::quit();
     }
 
     QDBusConnection::sessionBus().registerService("org.glacier.voicecall.ui");
-    if (!QDBusConnection::sessionBus().registerObject("/", m))
-    {
+    if (!QDBusConnection::sessionBus().registerObject("/", m)) {
         qWarning() << Q_FUNC_INFO << "Cannot register DBus object!";
     }
 }
@@ -62,4 +61,3 @@ void DBusAdaptor::show(QStringList args)
     Q_UNUSED(args);
     wm->showFullScreen();
 }
-
