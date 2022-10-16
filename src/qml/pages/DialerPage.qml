@@ -44,10 +44,11 @@ Page {
             horizontalAlignment: TextEdit.AlignRight
         }
 
-        Image{
+        NemoIcon {
             width: dialedNumber.height
             height: width
             source: "image://theme/angle-right"
+            color: dialedNumberBackspaceMouse.pressed ? Theme.accentColor : Theme.textColor
 
             anchors{
                 left: dialedNumber.right
@@ -55,6 +56,7 @@ Page {
             }
 
             MouseArea{
+                id: dialedNumberBackspaceMouse
                 anchors.fill: parent
                 onClicked: {
                     dialedNumber.text = dialedNumber.text.substring(0, dialedNumber.text.length - 1)
@@ -66,21 +68,38 @@ Page {
     Grid {
         id: dialerButtons
         width: parent.width
-        height: Theme.itemHeightLarge*4
+        height: Theme.itemHeightExtraLarge*4 + Theme.itemSpacingLarge*3
         anchors {
             bottom: dimmer.top
             bottomMargin: Theme.itemSpacingLarge
         }
+        spacing: Theme.itemSpacingLarge
 
         columns: 3
         rows: 4
 
+        ListModel {
+            id: buttonsModel
+            ListElement { number: "1"; letters: ""; }
+            ListElement { number: "2"; letters: "ABC"; }
+            ListElement { number: "3"; letters: "DEF"; }
+            ListElement { number: "4"; letters: "GHI"; }
+            ListElement { number: "5"; letters: "JKL"; }
+            ListElement { number: "6"; letters: "MNO"; }
+            ListElement { number: "7"; letters: "PQRS"; }
+            ListElement { number: "8"; letters: "TUV"; }
+            ListElement { number: "9"; letters: "WXYZ"; }
+            ListElement { number: "*"; letters: ""; }
+            ListElement { number: "0"; letters: "+"; }
+        }
+
         Repeater {
-            model: [0,1,2,3,4,5,6,7,8,9,10,11]
+            model: buttonsModel
             delegate: DialerButton {
-                width: dialerButtons.width/3
-                height: Theme.itemHeightLarge
-                index: model.index
+                width: (dialerButtons.width - Theme.itemSpacingLarge*3) /3
+                height: Theme.itemHeightExtraLarge
+                text: model.number
+                subText: model.letters
             }
         }
     }
