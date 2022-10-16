@@ -24,44 +24,40 @@ import QtQuick.Controls.Styles.Nemo 1.0
 
 import org.nemomobile.contacts 1.0
 
-Item{
-    id: btnCanvas
 
-    property int index
+Rectangle {
+    id: btn
+    width: height
+    height: btnCanvas.height
 
-    Rectangle {
-        id: btn
-        width: height
-        height: btnCanvas.height
+    color: dialerButtonMouse.pressed ? Theme.fillColor : "transparent"
+//    color: "transparent";
+    radius: height/2
 
+    property alias text: numberText.text
+    property alias subText: letterText.text
+
+    Text {
+        id: numberText
+        color: dialerButtonMouse.pressed ? Theme.accentColor : Theme.textColor
+        font.pixelSize: btn.height*0.8
+        font.family: Theme.fontFamily
+        font.weight: Theme.fontWeightMedium
         anchors.centerIn: parent
-
-        color: dialerButtonMouse.pressed ? Theme.accentColor : "transparent"
-        radius: height/2
-
-        property string text: {
-            if (btnCanvas.index <= 8) {
-                return "" + (btnCanvas.index + 1)
-            }
-
-            if (btnCanvas.index > 8) {
-                switch(btnCanvas.index) {
-                case 9: return "*";
-                case 10: return "0";
-                case 11: return "#";
-                }
-            }
-        }
-
-        Text {
-            id: numberText
-            color: Theme.textColor
-            font.pixelSize: btn.height*0.8
-            anchors.centerIn: parent
-            text: btn.text
-        }
-
+        anchors.horizontalCenterOffset: -btn.width*0.15
+        //            text: btn.text
     }
+    Text {
+        id: letterText
+        color: Theme.fillColor
+        font.pixelSize: numberText.font.pixelSize * 0.4
+        font.family: Theme.fontFamily
+        font.weight: Theme.fontWeightMedium
+        anchors.left: numberText.right
+        anchors.leftMargin: Theme.itemSpacingSmall
+        anchors.baseline: numberText.baseline
+    }
+
     MouseArea {
         id: dialerButtonMouse
         anchors.fill: parent
