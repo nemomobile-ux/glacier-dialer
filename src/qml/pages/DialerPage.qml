@@ -91,6 +91,7 @@ Page {
             ListElement { number: "9"; letters: "WXYZ"; }
             ListElement { number: "*"; letters: ""; }
             ListElement { number: "0"; letters: "+"; }
+            ListElement { number: "#"; letters: ""; }
         }
 
         Repeater {
