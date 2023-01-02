@@ -26,7 +26,7 @@ import QtQuick.Layouts 1.0
 import org.nemomobile.voicecall 1.0
 import org.nemomobile.contacts 1.0
 
-import MeeGo.QOfono 0.2
+import QOfono 0.2
 
 Page {
     id: first
