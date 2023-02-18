@@ -75,6 +75,16 @@ Page {
         Image {
             id: avatar
             anchors.horizontalCenter: parent.horizontalCenter
+            asynchronous: true
+            fillMode: Image.PreserveAspectCrop
+            width: (avatar.implicitWidth < Theme.itemWidthMedium) ? avatar.implicitWidth : Theme.itemWidthMedium
+            height: width
+            horizontalAlignment: Image.AlignHCenter
+            verticalAlignment: Image.AlignVCenter
+
+            sourceSize.width: 1024
+            sourceSize.height: 1024
+
             source: main.activeVoiceCallPerson
                     ? main.activeVoiceCallPerson.avatarPath
                     : 'image://theme/user';
