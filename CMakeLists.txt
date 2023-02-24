@@ -33,6 +33,9 @@ add_dependencies(glacier-dialer translations)
 install(FILES voicecall-ui-prestart.service
         DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/systemd/user/)
 
+install(FILES glacier-dialer.service
+        DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/systemd/user/)
+
 install(FILES com.nokia.telephony.callhistory.service org.glacier.voicecall.ui.service
         DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/dbus-1/services)
 

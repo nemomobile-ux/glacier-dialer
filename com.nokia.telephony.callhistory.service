@@ -1,4 +1,4 @@
 [D-BUS Service]
-Environment="QT_QPA_PLATFORM=wayland"
 Name=com.nokia.telephony.callhistory
-Exec=/usr/bin/glacier-dialer
+Exec=/usr/bin/false
+SystemdService=glacier-dialer.service

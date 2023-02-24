@@ -1,12 +1,11 @@
 [Unit]
 Description=Voicecall ui prestart
 After=lipstick.service
-Requires=dbus.socket voicecall-manager.service
+Requires=dbus.socket voicecall-manager.service lipstick.service
 
 [Service]
-Environment="QT_QPA_PLATFORM=wayland"
 ExecStart=/usr/bin/glacier-dialer --prestart
 Restart=always
 
 [Install]
-WantedBy=graphical-session.target
+WantedBy=user-session.target

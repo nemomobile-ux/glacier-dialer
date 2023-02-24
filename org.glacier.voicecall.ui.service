@@ -1,4 +1,4 @@
 [D-BUS Service]
-Environment="QT_QPA_PLATFORM=wayland"
 Name=org.glacier.voicecall.ui
-Exec=/usr/bin/glacier-dialer --prestart
+Exec=/usr/bin/false
+SystemdService=glacier-dialer.service
