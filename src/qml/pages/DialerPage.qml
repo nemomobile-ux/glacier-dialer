@@ -32,19 +32,23 @@ Page {
 
     property alias dialerNumber: dialedNumber.text
 
+    OfonoManager {
+        id: ofonoManager;
+    }
+
     OfonoSupplementaryServices {
         id: ussd
-        modemPath:telephone.modemPath
+        modemPath: ofonoManager.defaultModem
         onUssdResponse: {
-            console.log("response " +response )
+            console.log("response " + response )
             ussdDialog.headingText = response
             ussdDialog.open();
         }
         onNotificationReceived: {
-            console.log("message" +message )
+            console.log("message" + message )
         }
         onRequestReceived: {
-            console.log("message" +message )
+            console.log("message" + message )
         }
 
         onStateChanged: {
@@ -57,7 +61,10 @@ Page {
         id: ussdDialog
         acceptText: qsTr("Ok")
         inline: true
-        onAccepted: close()
+        onAccepted: {
+            close()
+            dialedNumber.text = ""
+        }
     }
 
 
