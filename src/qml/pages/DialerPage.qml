@@ -22,6 +22,8 @@ import QtQuick.Controls.Nemo 1.0
 import QtQuick.Controls.Styles.Nemo 1.0
 import QtQuick.Layouts 1.0
 import org.nemomobile.contacts 1.0
+import QOfono 0.2
+import Nemo.Dialogs 1.0
 
 import "../components"
 
@@ -29,6 +31,42 @@ Page {
     id: dialer
 
     property alias dialerNumber: dialedNumber.text
+
+    OfonoManager {
+        id: ofonoManager;
+    }
+
+    OfonoSupplementaryServices {
+        id: ussd
+        modemPath: ofonoManager.defaultModem
+        onUssdResponse: {
+            console.log("response " + response )
+            ussdDialog.headingText = response
+            ussdDialog.open();
+        }
+        onNotificationReceived: {
+            console.log("message" + message )
+        }
+        onRequestReceived: {
+            console.log("message" + message )
+        }
+
+        onStateChanged: {
+            console.log("supplemetary services state " + state)
+        }
+
+    }
+
+    Dialog {
+        id: ussdDialog
+        acceptText: qsTr("Ok")
+        inline: true
+        onAccepted: {
+            close()
+            dialedNumber.text = ""
+        }
+    }
+
 
     Item {
         id: numForDialing
@@ -42,6 +80,12 @@ Page {
             font.pixelSize: numForDialing.height*0.85
             color: Theme.accentColor
             horizontalAlignment: TextEdit.AlignRight
+            onTextChanged: {
+                if ((text.length > 2) && (text[text.length-1] === "#")) {
+                    console.log("ussd.initiate("+text+")")
+                    ussd.initiate(text)
+                }
+            }
         }
 
         NemoIcon {
@@ -60,6 +104,9 @@ Page {
                 anchors.fill: parent
                 onClicked: {
                     dialedNumber.text = dialedNumber.text.substring(0, dialedNumber.text.length - 1)
+                }
+                onPressAndHold: {
+                    dialedNumber.text = "";
                 }
             }
         }
@@ -101,6 +148,19 @@ Page {
                 height: Theme.itemHeightExtraLarge
                 text: model.number
                 subText: model.letters
+                onPressed: {
+                    telephone.startDtmfTone(model.number);
+                    dialedNumber.insert(dialedNumber.text.length,model.number)
+                }
+                onPressAndHold: {
+                    if (model.number === "0") {
+                        dialedNumber.text = dialedNumber.text.replace(/0$/,"+") // replace last 0 with +
+                    }
+                }
+                onReleased: {
+                    telephone.stopDtmfTone();
+                }
+
             }
         }
     }

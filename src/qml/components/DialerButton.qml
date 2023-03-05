@@ -37,6 +37,10 @@ Rectangle {
     property alias text: numberText.text
     property alias subText: letterText.text
 
+    signal pressed();
+    signal released();
+    signal pressAndHold();
+
     Text {
         id: numberText
         color: dialerButtonMouse.pressed ? Theme.accentColor : Theme.textColor
@@ -45,7 +49,6 @@ Rectangle {
         font.weight: Theme.fontWeightMedium
         anchors.centerIn: parent
         anchors.horizontalCenterOffset: -btn.width*0.15
-        //            text: btn.text
     }
     Text {
         id: letterText
@@ -61,14 +64,9 @@ Rectangle {
     MouseArea {
         id: dialerButtonMouse
         anchors.fill: parent
-        onPressed: {
-            dialedNumber.insert(dialedNumber.text.length ,btn.text)
-        }
-        onPressAndHold: {
-            if (btn.text == "0") {
-                dialedNumber.text = dialedNumber.text.replace(/0$/,"+") // replace last 0 with +
-            }
-        }
+        onPressed: btn.pressed();
+        onPressAndHold: btn.pressAndHold();
+        onReleased: btn.released();
     }
 
 }
