@@ -1,5 +1,6 @@
 /*
  * Copyright 2014 Aleksi Suomalainen <suomalainen.aleksi@gmail.com>
+ * Copyright (C) 2023 Chupligin Sergey <neochapay@gmail.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -17,11 +18,11 @@
  * Boston, MA 02110-1301, USA.
 */
 
-import QtQuick 2.6
-import QtQuick.Controls 1.0
-import QtQuick.Controls.Nemo 1.0
-import QtQuick.Controls.Styles.Nemo 1.0
-import QtQuick.Layouts 1.0
+import QtQuick
+import QtQuick.Controls
+
+import Nemo
+import Nemo.Controls
 
 import org.nemomobile.voicecall 1.0
 import org.nemomobile.contacts 1.0
@@ -37,13 +38,13 @@ Page {
             ToolButton {
                 iconSource: "image://theme/history"
                 onClicked: {
-                    pageStack.push(Qt.resolvedUrl("CallLogPage.qml"));
+                    main.push(Qt.resolvedUrl("CallLogPage.qml"));
                 }
             },
             ToolButton {
                 iconSource: "image://theme/search"
                 onClicked: {
-                    pageStack.push(Qt.resolvedUrl("ContactsPage.qml"));
+                    main.push(Qt.resolvedUrl("ContactsPage.qml"));
                 }
             }
         ]

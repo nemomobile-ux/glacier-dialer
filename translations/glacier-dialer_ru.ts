@@ -4,20 +4,17 @@
 <context>
     <name>CallLogPage</name>
     <message>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="35"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="35"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="36"/>
         <source>Call log</source>
         <translation>Список звонков</translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="95"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="95"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="96"/>
         <source>Call journal empty</source>
         <translation>Журнал звонков пуст</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/pages/CallLogPage.qml" line="111"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="111"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="112"/>
         <source>%n year(s) ago</source>
         <comment>refreshTimestamp</comment>
         <translation>
@@ -27,8 +24,7 @@
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/pages/CallLogPage.qml" line="113"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="113"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="114"/>
         <source>%n month(s) ago</source>
         <comment>refreshTimestamp</comment>
         <translation>
@@ -38,8 +34,7 @@
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/pages/CallLogPage.qml" line="117"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="117"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="118"/>
         <source>%n hour(s) ago</source>
         <comment>refreshTimestamp</comment>
         <translation>
@@ -49,8 +44,7 @@
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/pages/CallLogPage.qml" line="119"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="119"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="120"/>
         <source>%n minute(s) ago</source>
         <comment>refreshTimestamp</comment>
         <translation>
@@ -60,8 +54,7 @@
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/qml/pages/CallLogPage.qml" line="115"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="115"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="116"/>
         <source>%n day(s) ago</source>
         <comment>refreshTimestamp</comment>
         <translation>
@@ -71,8 +64,7 @@
         </translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="121"/>
-        <location filename="../src/qml/pages/CallLogPage.qml" line="121"/>
+        <location filename="../src/qml/pages/CallLogPage.qml" line="122"/>
         <source>Just now</source>
         <translation>Только что</translation>
     </message>
@@ -80,26 +72,22 @@
 <context>
     <name>CallView</name>
     <message>
-        <location filename="../src/qml/pages/CallView.qml" line="33"/>
-        <location filename="../src/qml/pages/CallView.qml" line="33"/>
+        <location filename="../src/qml/pages/CallView.qml" line="34"/>
         <source>Call</source>
         <translation>Звонок</translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/CallView.qml" line="33"/>
-        <location filename="../src/qml/pages/CallView.qml" line="33"/>
+        <location filename="../src/qml/pages/CallView.qml" line="34"/>
         <source>Incoming call</source>
         <translation>Входящий звонок</translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/CallView.qml" line="150"/>
-        <location filename="../src/qml/pages/CallView.qml" line="150"/>
+        <location filename="../src/qml/pages/CallView.qml" line="161"/>
         <source>Answer</source>
         <translation>Ответить</translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/CallView.qml" line="163"/>
-        <location filename="../src/qml/pages/CallView.qml" line="163"/>
+        <location filename="../src/qml/pages/CallView.qml" line="174"/>
         <source>Hang up</source>
         <translation>Повесить трубку</translation>
     </message>
@@ -107,20 +95,17 @@
 <context>
     <name>ContactDetails</name>
     <message>
-        <location filename="../src/qml/pages/ContactDetails.qml" line="54"/>
-        <location filename="../src/qml/pages/ContactDetails.qml" line="54"/>
+        <location filename="../src/qml/pages/ContactDetails.qml" line="55"/>
         <source>First name</source>
         <translation>Имя</translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/ContactDetails.qml" line="60"/>
-        <location filename="../src/qml/pages/ContactDetails.qml" line="60"/>
+        <location filename="../src/qml/pages/ContactDetails.qml" line="61"/>
         <source>Last name</source>
         <translation>Фамилия</translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/ContactDetails.qml" line="66"/>
-        <location filename="../src/qml/pages/ContactDetails.qml" line="66"/>
+        <location filename="../src/qml/pages/ContactDetails.qml" line="67"/>
         <source>Phone number</source>
         <translation>Номер телефона</translation>
     </message>
@@ -129,21 +114,26 @@
     <name>ContactsPage</name>
     <message>
         <location filename="../src/qml/pages/ContactsPage.qml" line="39"/>
-        <location filename="../src/qml/pages/ContactsPage.qml" line="39"/>
         <source>Contacts</source>
         <translation>Контакты</translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/ContactsPage.qml" line="49"/>
         <location filename="../src/qml/pages/ContactsPage.qml" line="49"/>
         <source>Search</source>
         <translation>Поиск</translation>
     </message>
 </context>
 <context>
+    <name>DialerPage</name>
+    <message>
+        <location filename="../src/qml/pages/DialerPage.qml" line="63"/>
+        <source>Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FirstPage</name>
     <message>
-        <location filename="../src/qml/pages/FirstPage.qml" line="35"/>
         <location filename="../src/qml/pages/FirstPage.qml" line="35"/>
         <source>Dialer</source>
         <translation>Телефон</translation>
