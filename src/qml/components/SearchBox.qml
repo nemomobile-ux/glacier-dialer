@@ -2,7 +2,7 @@
  **
  ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
  ** Copyright (C) 2012 Robin Burchell <robin+mer@viroteck.net>
- ** Copyright (C) 2018-2022 Chupligin Sergey <neochapay@gmail.com>
+ ** Copyright (C) 2018-2023 Chupligin Sergey <neochapay@gmail.com>
  **
  ** $QT_BEGIN_LICENSE:BSD$
  ** You may use this file under the terms of the BSD license as follows:
@@ -36,11 +36,11 @@
  **
  ****************************************************************************/
 
-import QtQuick 2.6
+import QtQuick
+import QtQuick.Controls
 
-import QtQuick.Controls 1.0
-import QtQuick.Controls.Nemo 1.0
-import QtQuick.Controls.Styles.Nemo 1.0
+import Nemo
+import Nemo.Controls
 
 Item {
     id: root

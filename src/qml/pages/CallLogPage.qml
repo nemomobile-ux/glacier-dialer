@@ -1,6 +1,6 @@
 /*
  * Copyright 2014 Aleksi Suomalainen <suomalainen.aleksi@gmail.com>
- * Copyright 2018 Chupligin Sergey <neochapay@gmail.com>
+ * Copyright 2018-2023 Chupligin Sergey <neochapay@gmail.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -18,11 +18,12 @@
  * Boston, MA 02110-1301, USA.
 */
 
-import QtQuick 2.6
-import QtQuick.Controls 1.0
-import QtQuick.Controls.Nemo 1.0
-import QtQuick.Controls.Styles.Nemo 1.0
-import QtQuick.Layouts 1.0
+import QtQuick
+import QtQuick.Controls
+
+import Nemo
+import Nemo.Controls
+
 import org.nemomobile.contacts 1.0
 import org.nemomobile.commhistory 1.0
 

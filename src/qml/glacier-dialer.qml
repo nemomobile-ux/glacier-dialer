@@ -1,5 +1,6 @@
 /*
  * Copyright 2014 Aleksi Suomalainen <suomalainen.aleksi@gmail.com>
+ * Copyright (C) 2023 Chupligin Sergey <neochapay@gmail.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -17,11 +18,13 @@
  * Boston, MA 02110-1301, USA.
 */
 
-import QtQuick 2.6
-import QtQuick.Window 2.1
-import QtQuick.Controls 1.0
-import QtQuick.Controls.Nemo 1.0
-import QtQuick.Controls.Styles.Nemo 1.0
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Window
+
+import Nemo
+import Nemo.Controls
+
 import org.nemomobile.voicecall 1.0
 import org.nemomobile.contacts 1.0
 import org.nemomobile.commhistory 1.0
@@ -48,7 +51,7 @@ ApplicationWindow
 
             if(activeVoiceCall) {
 
-                pageItem.pageStack.push({
+                main.push({
                                             "item": Qt.resolvedUrl("pages/CallView.qml"),
                                             "properties": {
                                                 "main": main,
@@ -64,7 +67,7 @@ ApplicationWindow
                     main.raise()
                 }
             } else {
-                pageItem.pageStack.pop()
+                main.pop()
                 main.activeVoiceCallPerson = null
                 main.hide();
             }
@@ -94,7 +97,7 @@ ApplicationWindow
         id: voicecallService
 
         onOpenCallHistory: {
-            pageStack.push(Qt.resolvedUrl("pages/CallLogPage.qml"))
+            main.push(Qt.resolvedUrl("pages/CallLogPage.qml"))
             main.raise()
         }
     }
