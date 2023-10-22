@@ -9,9 +9,9 @@
         <file>pages/CallView.qml</file>
         <file>pages/ContactDelegate.qml</file>
         <file>pages/ContactDetails.qml</file>
-        <file>pages/DialerPage.qml</file>
-        <file>pages/FirstPage.qml</file>
         <file>pages/ContactsPage.qml</file>
         <file>pages/CallLogPage.qml</file>
+        <file>components/Dialer.qml</file>
+        <file>pages/DialerPage.qml</file>
     </qresource>
 </RCC>

@@ -30,7 +30,7 @@ import org.nemomobile.qmlcontacts 1.0
 import "../components"
 
 Page {
-    id: contacts
+    id: contactsPage
 
     signal selectContact(string number)
 
