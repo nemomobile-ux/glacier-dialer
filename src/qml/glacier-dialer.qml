@@ -48,17 +48,8 @@ ApplicationWindow
     VoiceCallManager {
         id: telephone
         onActiveVoiceCallChanged: {
-
             if(activeVoiceCall) {
-
-                main.push({
-                                            "item": Qt.resolvedUrl("pages/CallView.qml"),
-                                            "properties": {
-                                                "main": main,
-                                                "telephone": telephone
-                                            },
-                                            "immediate": true
-                                        })
+                main.push(Qt.resolvedUrl("pages/CallView.qml"),{"telephone": telephone, "immediate": true})
                 if(!main.visible)
                 {
                     main.activationReason = "activeVoiceCallChanged"
@@ -67,7 +58,7 @@ ApplicationWindow
                     main.raise()
                 }
             } else {
-                main.pop()
+                main.pageStack.pop()
                 main.activeVoiceCallPerson = null
                 main.hide();
             }
