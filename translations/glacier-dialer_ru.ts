@@ -95,17 +95,17 @@
 <context>
     <name>ContactDetails</name>
     <message>
-        <location filename="../src/qml/pages/ContactDetails.qml" line="55"/>
+        <location filename="../src/qml/pages/ContactDetails.qml" line="56"/>
         <source>First name</source>
         <translation>Имя</translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/ContactDetails.qml" line="61"/>
+        <location filename="../src/qml/pages/ContactDetails.qml" line="62"/>
         <source>Last name</source>
         <translation>Фамилия</translation>
     </message>
     <message>
-        <location filename="../src/qml/pages/ContactDetails.qml" line="67"/>
+        <location filename="../src/qml/pages/ContactDetails.qml" line="68"/>
         <source>Phone number</source>
         <translation>Номер телефона</translation>
     </message>
@@ -124,19 +124,26 @@
     </message>
 </context>
 <context>
-    <name>DialerPage</name>
+    <name>Dialer</name>
     <message>
-        <location filename="../src/qml/pages/DialerPage.qml" line="63"/>
+        <location filename="../src/qml/components/Dialer.qml" line="66"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
+    <name>DialerPage</name>
+    <message>
+        <location filename="../src/qml/pages/DialerPage.qml" line="38"/>
+        <source>Dialer</source>
+        <translation type="unfinished">Телефон</translation>
+    </message>
+</context>
+<context>
     <name>FirstPage</name>
     <message>
-        <location filename="../src/qml/pages/FirstPage.qml" line="35"/>
         <source>Dialer</source>
-        <translation>Телефон</translation>
+        <translation type="vanished">Телефон</translation>
     </message>
 </context>
 <context>

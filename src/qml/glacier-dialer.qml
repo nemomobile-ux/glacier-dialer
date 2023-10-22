@@ -35,7 +35,7 @@ import "components"
 ApplicationWindow
 {
     id: main
-    initialPage: FirstPage {
+    initialPage: DialerPage {
         id: pageItem
     }
 
