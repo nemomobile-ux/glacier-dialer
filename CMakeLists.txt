@@ -10,6 +10,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_INSTALL_PREFIX /usr)
 
+option(QML_DEBUG "Don't pack QML into binary for debug and develop" OFF)
+
 include(FeatureSummary)
 include(GNUInstallDirs)
 
